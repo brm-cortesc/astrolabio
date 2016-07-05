@@ -1,12 +1,5 @@
-/*
--Deben ser elementos por default que lucirán igual en todo el sitio, Es .
--Ningún estilo de estos elementos selectores deberá usar !important.
--No usar selectores tipo class o id.
-*/
-
-	
 a
-	color #ff5599
+	color$Verde
 	text-decoration none
 	 
 	&:hover
@@ -16,23 +9,15 @@ a
 		border 0
 	
 body
-	color Gris
+	color #666
+	font-family $Raleway
 	font-size 1.6rem
-	
+	font-weight $Light
 
-h1, h2, h3
-	font-family Varela 
-	color darken(#ff5599, 30%)
-	
+header
+	display none
 
-main
-	center()
-section
-	cf()
-	col(1/2.2, 0.02)
-	transition all ease-in-out 0.3s
+img
+	height auto
+	max-width 100%
 	
-	article
-		col(1/3.3)
-		padding 0.15rem
-		transition all ease-in-out 0.3s

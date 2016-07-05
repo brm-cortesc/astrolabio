@@ -16,11 +16,37 @@ app.use(express.static(__dirname + '/public'))
 
 app.set('view engine', 'pug');
 
+
+//Rutas para visualizar
+
 router.get('/', function (req, res) {
 	
-	// res.send('hola');
-	res.render('index', { title: 'Shutter Photo'});
+	res.render('index');
 
 } );
+
+
+router.get('/categorias', function (req, res) {
+
+	res.render('categorias');
+
+} );
+
+
+
+router.get('/image', function (req, res) {
+	
+	res.render('single-image');
+
+} );
+
+
+
+router.get('/resultados', function (req, res) {
+	
+	res.render('resultados');
+
+} );
+
 
 console.log('Server started, please go to http://localhost:'+port);

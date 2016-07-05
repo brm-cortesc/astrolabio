@@ -1,3 +1,4 @@
+//-Mixins
 doctype html
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es-CO"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="es-CO"> <![endif]-->
@@ -12,14 +13,14 @@ head
 	meta(http-equiv='X-UA-Compatible', content='IE=edge')
 	meta(name='viewport', content='width=device-width, initial-scale=1')
 
-	if debug == true
-		link(rel='stylesheet', href='css/style.css')
+	//- if debug == true
+	link(rel='stylesheet', href='css/style.css')
 
-	else
+	//- else
 		link(rel='stylesheet', href='css/astrolabio.min.css') 
 
 	// Web Fonts
-	link(href='http://fonts.googleapis.com/css?family=Varela+Round|Roboto:400italic,300,700,400' rel='stylesheet' type='text/css')
+	link(href='https://fonts.googleapis.com/css?family=Raleway:400,300,500' rel='stylesheet' type='text/css')
 
 	<!--[if lt IE]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -33,7 +34,7 @@ body
 		
 	//-Layout del header (logo, menu, login, etc)
 
-	include header.pug
+	//- include header.pug
 	
 	//-Contenido de cada page
 	
@@ -42,7 +43,7 @@ body
 			
 
 	//- Layout del Footer
-	include footer.pug
+	include partials/footer.pug
 	
 	//-Acá se agregan los scripts que pueden estar para una sola página
 	block Scripts

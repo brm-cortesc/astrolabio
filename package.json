@@ -9,8 +9,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "css-dev": "grunt --debug",
-    "watch": "npm run css-dev & nodemon server -e js",
+    "watch": "grunt",
     "start": "node server.js"
   },
   "dependencies": {

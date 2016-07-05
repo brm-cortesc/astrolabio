@@ -1,23 +1,35 @@
-header
+//Image grid
+
+.grid
+	cf()
 	center()
 	
-	nav
-		center(70%)
+	&-item
+		span(1/5)
 		
 
-		ul
-			list-style-type none
-			margin 0
-			padding 0
+	&-item
+		overflow hidden
+		height 20rem
+	
+	&-item-w2
+		width 40%
 		
-			li
-				border-left 1px solid #fff
-				border-right @border-left
-				span(1/5.1)
-				
-				a
-					color #fff
-					display block
-					padding 0.25rem
-					text-align center
-					width 100%
+	&-item-h2
+		height 40rem
+		
+	&-item-h3
+		height 10rem
+		
+	&-sizer
+		width 20%		
+
+	figure
+		margin 0 auto
+		position relative
+		
+		img
+			max-width 103%
+		
+		
+		

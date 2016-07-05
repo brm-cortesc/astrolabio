@@ -1,6 +1,29 @@
 //Header
 header
+	img.logo(src="images/astrolabio.svg", alt="Astrolabio", title="Astrolabio")
+	
+	div.buscador-header
+		input(type="text", value="this value")
 
-	include menu.pug
+	div.switch
+		label Local
+			input(type="checkbox", checked)
+			span.lever
+			| shutterstock
+
+	div.counter
+		h2 Descargas
+
+		article
+			p.diarias.
+				Diarias <span class="num" >32</span>
+			
+			p.mes.
+				Restantes <span class="num" >1000</span>
+
+		article
+			p Disponible hasta
+			p.fecha 20/06/2016
+
 
 ///-Header

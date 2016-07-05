@@ -1,5 +1,5 @@
 //-Layout Base
-extends ../src/templates/partials/base.pug
+extends ../src/templates/base.pug
 
 //-Etiqueta Title
 block title
@@ -12,20 +12,18 @@ block description
 
 
 block content
-	main
-		h1 Por fin :D
-		description esto es por fin una implementación de nodemon + stylus + browsersync + grunt + pug(jade)
-		-for(a=0; a < 2; a++)
 
-			section
-				h2= title
+	section
+		img.logo(src="images/astrolabio.svg", alt="Astrolabio", title="Astrolabio")
+	
+		form#buscar
+			input(type="text")
+			button(type="button")
+				i.icon.icon-buscar
 
-				-for(x=0; x < 6; x++)
+		a.btn.btn-categoria(href="/categorias", role="button")  Categorías
+		a.btn.btn-last(role="button")  Últimas Descargas
 
-					article
-						p.
-							 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum minus recusandae nobis alias blanditiis architecto enim unde quasi, rem ullam in necessitatibus eveniet, error expedita, doloribus ratione aspernatur dolore veritatis!
-		
 
 
 	

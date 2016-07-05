@@ -1,0 +1,40 @@
+//-Layout Base
+extends ../src/templates/base.pug
+
+//-Etiqueta Title
+block title
+
+	title Astrolabio
+
+//-Etiqueta Metadescription
+block description
+	meta(name="description", content="El Astrolabio de BRM" )
+
+
+block content
+	//Header
+	include ../src/templates/partials/header.pug
+	///-Header
+
+	section.image
+		figure
+			img(src="images/dog-1.jpg", alt="")
+
+		article
+			h2 Categorías
+			p.lista-categorias.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam nisi qui similique accusantium, distinctio velit laudantium aliquid maxime quaerat quo. Quasi velit facere assumenda blanditiis sunt voluptatem facilis consequatur reiciendis!
+			
+			h2 Tags
+			p.lista-tags.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nemo veniam dolore facere repudiandae! Nisi tenetur saepe, fugit totam consequuntur, atque, alias dolor soluta quis natus rerum odio dicta quo!
+
+			button.btn.btn-descargar(type="button").
+				Descargar <i class="icon icon-descargar"></i>
+
+
+	aside.related
+		h3 Relacionadas
+		-for(x =0;x < 10; x++)
+			figure.related-item
+				img(src="images/dog-1.jpg")
