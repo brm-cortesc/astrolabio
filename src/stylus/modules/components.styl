@@ -1,4 +1,46 @@
-section
+.categoria
+	center()
+	
+	.categoria-item
+		span(1/6)
+		max-height 20rem
+		margin 0
+		position relative
+		overflow hidden
+		
+		h2
+			background-color rgba(0, 0, 0, .75)
+			centrarAb()
+			font-size 1.6rem
+			height 100%
+			text-align center
+			transitionBase(0.3s)
+			width @height
+
+			a
+				color #fff
+				left 50%
+				position absolute
+				tex-transform uppercase
+				top 50%
+				transform translate3d(-50%, -50%, 0)
+				
+
+				&:hover
+					text-decoration none
+					
+			&:hover
+				background-color rgba($Amarillo, .75)
+				
+		img
+			display block
+			margin 0 auto
+			max-width 150%
+			// transform translate3d(-50%, -50%, 0)
+			
+
+
+.home
 	
 	.btn-helpers
 		center(85.1rem)

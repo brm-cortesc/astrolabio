@@ -1,17 +1,19 @@
 //Header
 header
-	img.logo(src="images/astrolabio.svg", alt="Astrolabio", title="Astrolabio")
-	
-	div.buscador-header
-		input(type="text", value="this value")
+	nav
+		a(href="/"): img.logo(src="images/astrolabio.svg", alt="Astrolabio", title="Astrolabio")
+		
+		div.buscador-header
+			input(type="text", value="this value")
 
-	div.switch
-		label Local
-			input(type="checkbox", checked)
-			span.lever
-			| shutterstock
+	div.container-switch
+		div.switch
+			label Local
+				input(type="checkbox")
+				span.lever
+				| shutterstock
 
-	div.counter
+	div.container-counter
 		h2 Descargas
 
 		article
