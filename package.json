@@ -9,7 +9,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "watch": "grunt",
+    "watch": "grunt --debug",
     "start": "node server.js"
   },
   "dependencies": {

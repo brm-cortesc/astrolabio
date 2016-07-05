@@ -13,10 +13,10 @@ head
 	meta(http-equiv='X-UA-Compatible', content='IE=edge')
 	meta(name='viewport', content='width=device-width, initial-scale=1')
 
-	//- if debug == true
-	link(rel='stylesheet', href='css/style.css')
+	if env == 'dev'
+		link(rel='stylesheet', href='css/style.css')
 
-	//- else
+	else
 		link(rel='stylesheet', href='css/astrolabio.min.css') 
 
 	// Web Fonts

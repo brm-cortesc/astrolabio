@@ -4,11 +4,11 @@
 
 //Scripts
 //-Estos son los scripts que van en todos los htmls del desarrollo
-//- if debug == true
-script(src='js/libs/jquery.js')
-script(src='js/libs/isotope.pkgd.min.js')
-script(src='js/astrolabio.js')
+if env == 'dev'
+	script(src='js/libs/jquery.js')
+	script(src='js/libs/isotope.pkgd.min.js')
+	script(src='js/astrolabio.js')
 
-//- else
-//- 	script(src="js/libs.astrolabio.min.js")
-//- 	script(src='js/astrolabio.js')
+else
+	script(src="js/libs.astrolabio.min.js")
+	script(src='js/astrolabio.js')

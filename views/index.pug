@@ -14,15 +14,18 @@ block description
 block content
 
 	section
+		
 		img.logo(src="images/astrolabio.svg", alt="Astrolabio", title="Astrolabio")
+			
 	
 		form#buscar
 			input(type="text")
-			button(type="button")
-				i.icon.icon-buscar
+			button.btn.btn-search(type="button")
+				img(src="images/lupa.svg")
 
-		a.btn.btn-categoria(href="/categorias", role="button")  Categorías
-		a.btn.btn-last(role="button")  Últimas Descargas
+		article.btn-helpers
+			a.btn.btn-categoria(href="/categorias", role="button")  Categorías
+			a.btn.btn-last(role="button")  Últimas Descargas
 
 
 

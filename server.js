@@ -2,7 +2,8 @@ var express = require('express'),
     pug     = require('pug'),
     router  = express.Router(),
     app     = express(),
-    port    = 5000;
+    port    = 5000,
+    env 	= 'dev';
 
   app.use(router);
   app.use(express.static('public'));
@@ -21,14 +22,18 @@ app.set('view engine', 'pug');
 
 router.get('/', function (req, res) {
 	
-	res.render('index');
+	res.render('index', {
+		env : env
+	});
 
 } );
 
 
 router.get('/categorias', function (req, res) {
 
-	res.render('categorias');
+	res.render('categorias', {
+		env : env
+	});
 
 } );
 
@@ -36,7 +41,9 @@ router.get('/categorias', function (req, res) {
 
 router.get('/image', function (req, res) {
 	
-	res.render('single-image');
+	res.render('single-image', {
+		env : env
+	});
 
 } );
 
@@ -44,8 +51,9 @@ router.get('/image', function (req, res) {
 
 router.get('/resultados', function (req, res) {
 	
-	res.render('resultados');
-
+	res.render('resultados', {
+		env : env
+	});
 } );
 
 
