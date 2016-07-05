@@ -1,0 +1,38 @@
+//-Layout Base
+extends ../src/templates/partials/base.pug
+
+//-Etiqueta Title
+block title
+	- var seccion = "Demo"
+	- var titulo = "Home";
+	 
+	title Ejemplo de meta title | #{titulo}
+
+//-Etiqueta Metadescription
+block description
+	meta(name="description", content="Frontend BRM" )
+
+
+block content
+	main
+		h1 Por fin :D
+		description esto es por fin una implementación de nodemon + stylus + browsersync + grunt + pug(jade)
+		-for(a=0; a < 2; a++)
+
+			section
+				h2= title
+
+				-for(x=0; x < 6; x++)
+
+					article
+						p.
+							 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum minus recusandae nobis alias blanditiis architecto enim unde quasi, rem ullam in necessitatibus eveniet, error expedita, doloribus ratione aspernatur dolore veritatis!
+		
+
+
+	
+	
+
+block Scripts
+	script(src='https://apis.google.com/js/platform.js')
+

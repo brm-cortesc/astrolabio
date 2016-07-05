@@ -1,11 +1,8 @@
-// "grunt-contrib-jshint": "~0.10.0",
- // "grunt-contrib-qunit": "~0.2.0",
- // "grunt-contrib-stylus": "^0.20.0",
-// "markdown": "^0.5.0"
-var express = require('express');
-// var pug     = require('pug');
-var router  = express.Router();
-var app     = express();
+var express = require('express'),
+    pug     = require('pug'),
+    router  = express.Router(),
+    app     = express(),
+    port    = 5000;
 
   app.use(router);
   app.use(express.static('public'));
@@ -13,13 +10,19 @@ var app     = express();
 // };
 
 
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || port);
+
+app.set('views', __dirname + '/views')
+app.use(express.static(__dirname + '/public'))
 
 app.set('view engine', 'pug');
 
 
 router.get('/', function (req, res) {
 	
-	res.send('hola');
+	// res.send('hola');
+	res.render('index', { title: 'Shutter Photo'});
 
 } );
+
+console.log('Server started, please go to http://localhost:'+port);

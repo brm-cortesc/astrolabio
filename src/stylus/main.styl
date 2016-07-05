@@ -1,0 +1,32 @@
+//Plugin CSS3
+@import 'nib/vendor'
+@import 'nib/gradients'
+//Iguala estilos default de los navegadores Chrome, Firefox, Opera, Safari 6+, IE 8+ v4.1.1 
+@import 'modules/_normalize'
+@import 'jeet'
+//debug del layout
+// edit(green)
+//Configuracion del sitio
+@import 'modules/_settings'
+
+// Autoprefijos de navegadores y hacks para IE8
+vendor-prefixes = moz webkit o ms official
+
+
+//Variables y funciones, se deben declarar primero que el resto de archivos para poderlos utilizar
+@import "modules/variables"
+@import "modules/funciones"
+
+//Layout
+@import "modules/base" 
+@import "modules/layout"
+@import "modules/buttons"
+@import "modules/breadcrumbs"
+@import "modules/menu"
+@import "modules/footer"
+
+
+@import "modules/utilities"
+// @import "modules/animations"
+// @import "modules/keyframes"
+@import "modules/media-queries"
