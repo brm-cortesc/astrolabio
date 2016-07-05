@@ -187,7 +187,7 @@ _thumbs/
 
 
 ### Joomla ###
-##/.gitignore
+/.gitignore
 /.htaccess
 /administrator/cache/*
 /administrator/components/com_admin/*
