@@ -9,14 +9,12 @@ var express = require('express'),
 // module.exports = function (app) {
 // };
 
-
 app.listen(process.env.PORT || port);
 
 app.set('views', __dirname + '/views')
 app.use(express.static(__dirname + '/public'))
 
 app.set('view engine', 'pug');
-
 
 router.get('/', function (req, res) {
 	

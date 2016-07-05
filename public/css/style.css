@@ -193,6 +193,9 @@ textarea {
   -webkit-appearance: button;
   font: inherit;
 }
+* {
+  background: rgba(0,128,0,0.05);
+}
 a {
   color: #f59;
   text-decoration: none;

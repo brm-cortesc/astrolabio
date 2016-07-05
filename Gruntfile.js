@@ -16,7 +16,17 @@ module.exports = function(grunt) {
 			'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
 			'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
 			' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
-		// Inicio de la configuración de las tareas
+		// Inicio de la configuración de las tareas, concurrent permite correr procesos en paralelo
+		concurrent:{
+			dev:{
+				tasks: ['nodemon', ['browserSync', 'watch']],
+				options:{
+			      logConcurrentOutput: true
+
+				}
+			}
+
+		},
 		//Tarea que se utiliza para limpiar los archivos temporales que se crean al momento de minificar o combinar archivos
 		clean: {
 			files: ['dist']
@@ -125,7 +135,7 @@ module.exports = function(grunt) {
 									watchTask: true, // < VERY important, so much wow
 									injectChanges: true,
 									proxy: 'http://localhost:5000',
-									port: 5000, // our new port
+									port: 5001, // our new port
 									open: true
 							}
 					}
@@ -170,6 +180,11 @@ module.exports = function(grunt) {
 
 	
 		},
+		nodemon: {
+		  dev: {
+		    script: 'server.js'
+		  }
+		},
 		/*Mantiene una tarea que observa los archivos y ejecuta tareas atumaticamente al momento de detectar cambios, solo se observan los archivos de los preprocesadores para evitar loops.*/
 		watch: {
 			brm: {
@@ -197,11 +212,8 @@ module.exports = function(grunt) {
 	grunt.registerTask('minijs', ['concat','uglify','clean']);
 	grunt.registerTask('csstylus', ['stylus']);
 	// grunt.registerTask('template', ['pug']);
-	grunt.registerTask('comando', ['shell:phantom']);
-	grunt.registerTask('git', ['shell:init']);
-	grunt.registerTask('stat', ['shell:stats','shell:add']);
-	// grunt.registerTask('observar', ['watch:brm','browserSync']);
 	grunt.registerTask('depurar', ['jshint']);
+	grunt.registerTask('observer', ['nodemon']);
 
-	grunt.registerTask('default', ['browserSync', 'watch']); 
+	grunt.registerTask('default', ['concurrent']); 
 };
