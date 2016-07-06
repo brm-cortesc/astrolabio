@@ -698,6 +698,25 @@ header .logo {
   margin: 0 auto;
   max-width: 150%;
 }
+.home {
+  *zoom: 1;
+  width: auto;
+  max-width: 100%;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.home:before,
+.home:after {
+  content: '';
+  display: table;
+}
+.home:after {
+  clear: both;
+}
 .home .btn-helpers {
   *zoom: 1;
   width: auto;
@@ -754,6 +773,115 @@ header .logo {
 }
 .home .logo:after {
   clear: both;
+}
+.image {
+  margin: 2rem auto;
+  *zoom: 1;
+  width: auto;
+  max-width: 100%;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.image:before,
+.image:after {
+  content: '';
+  display: table;
+}
+.image:after {
+  clear: both;
+}
+.image article,
+.image .image-selected {
+  margin: 1rem auto;
+  padding: 2rem;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 42.34782608695652%;
+  margin-left: 0%;
+  margin-right: 2%;
+}
+.image article:before,
+.image .image-selected:before,
+.image article:after,
+.image .image-selected:after {
+  content: '';
+  display: table;
+}
+.image article:after,
+.image .image-selected:after {
+  clear: both;
+}
+.image article:last-child,
+.image .image-selected:last-child {
+  margin-right: 0%;
+}
+.image article h2 {
+  color: #666;
+  font-size: 2.2rem;
+  text-align: left;
+}
+.related {
+  background-color: #ddd;
+  padding: 2rem !important;
+  *zoom: 1;
+  width: auto;
+  max-width: 100%;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.related:before,
+.related:after {
+  content: '';
+  display: table;
+}
+.related:after {
+  clear: both;
+}
+.related h3 {
+  margin-top: 0rem;
+}
+.related .related-item {
+  *zoom: 1;
+  max-height: 10rem;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 8.2%;
+  margin-left: 0%;
+  margin-right: 2%;
+}
+.related .related-item:before,
+.related .related-item:after {
+  content: '';
+  display: table;
+}
+.related .related-item:after {
+  clear: both;
+}
+.related .related-item:before,
+.related .related-item:after {
+  content: '';
+  display: table;
+}
+.related .related-item:after {
+  clear: both;
+}
+.related .related-item:last-child {
+  margin-right: 0%;
 }
 #buscar {
   background-color: #ddd;

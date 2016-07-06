@@ -17,7 +17,7 @@ block content
 	///-Header
 
 	section.image
-		figure
+		figure.image-selected
 			img(src="images/dog-1.jpg", alt="")
 
 		article
@@ -37,4 +37,5 @@ block content
 		h3 Relacionadas
 		-for(x =0;x < 10; x++)
 			figure.related-item
-				img(src="images/dog-1.jpg")
+				a(href="#")
+					img(src="images/dog-1.jpg")
