@@ -3,7 +3,7 @@ extends ../src/templates/base.pug
 
 //-Etiqueta Title
 block title
-
+	-var titulo = "Image";
 	title Astrolabio
 
 //-Etiqueta Metadescription
@@ -22,15 +22,17 @@ block content
 
 		article
 			h2 Categorías
-			p.lista-categorias.
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam nisi qui similique accusantium, distinctio velit laudantium aliquid maxime quaerat quo. Quasi velit facere assumenda blanditiis sunt voluptatem facilis consequatur reiciendis!
+			p.lista-categorias
+				-for(b = 0; b < 30;b++)
+					a(href="#") Categoría #{b}
 			
 			h2 Tags
-			p.lista-tags.
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nemo veniam dolore facere repudiandae! Nisi tenetur saepe, fugit totam consequuntur, atque, alias dolor soluta quis natus rerum odio dicta quo!
+			p.lista-tags
+				-for(c = 0; c < 40;c++)
+					a(href="#") Categoría #{c}
 
 			button.btn.btn-descargar(type="button").
-				Descargar <i class="icon icon-descargar"></i>
+				<span>Descargar</span> <img src="images/download.svg" />
 
 
 	aside.related

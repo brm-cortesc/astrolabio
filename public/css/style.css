@@ -269,6 +269,30 @@ input:focus {
 .btn-last {
   font-size: 2.1rem;
 }
+.btn-descargar {
+  background-color: #16897f;
+  color: #fff;
+  font-size: 2.2rem;
+  max-width: 100%;
+  padding: 1rem;
+  position: relative;
+  text-indent: -4.9rem;
+  vertical-align: middle;
+  width: 33.3rem;
+}
+.btn-descargar img {
+  background-color: #1fc4b6;
+  padding: 0.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.5rem 1rem;
+  display: block;
+  width: 3.6rem;
+}
+.btn-descargar:hover {
+  background-color: #1ba79b;
+}
 .btn-last:hover {
   background-color: #23dccd;
 }
@@ -365,7 +389,7 @@ input:focus {
   max-width: 103%;
 }
 header {
-  background-color: rgba(0,0,0,0.75);
+  background-color: #e4aa15;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
   *zoom: 1;
@@ -438,12 +462,25 @@ header nav .buscador-header:after {
 }
 header nav .buscador-header input {
   background-color: #e4aa15;
+  border: 1px solid #89660d;
   -webkit-border-radius: 0.5rem;
   border-radius: 0.5rem;
   color: #89660d;
   font-size: 2rem;
   padding: 1rem;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
   width: 93%;
+}
+header nav .buscador-header input:active,
+header nav .buscador-header input:focus,
+header nav .buscador-header input:hover {
+  background-color: #ddd;
+  border-color: transparent;
+  color: #000;
 }
 header .container-counter {
   color: #fff;
@@ -480,7 +517,7 @@ header .container-counter p {
 }
 header .container-counter .fecha,
 header .container-counter .num {
-  color: #e4aa15;
+  color: #89660d;
   font-size: 2.1rem;
   font-weight: 500;
 }
@@ -603,7 +640,7 @@ header .container-switch .switch .lever:before {
   width: 21px;
 }
 header .container-switch .switch [type=checkbox]:checked + .lever {
-  background-color: #e4aa15;
+  background-color: #89660d;
   color: #e4aa15;
 }
 header .container-switch .switch [type=checkbox]:checked + .lever:after {
@@ -616,6 +653,31 @@ header .logo {
   display: inline-block;
   max-width: 9.3rem;
   vertical-align: middle;
+}
+header.header-image {
+  background-color: #1fc4b6;
+}
+header.header-image nav input {
+  background-color: #1fc4b6;
+  border: 1px solid #13766d;
+  color: #13766d;
+}
+header.header-image .container-counter .fecha,
+header.header-image .container-counter .num {
+  color: #13766d;
+}
+header.header-image .container-switch [type="checkbox"]:checked + label:before {
+  border-color: #1fc4b6;
+}
+header.header-image .container-switch [type=checkbox]:checked + .lever {
+  background-color: #13766d;
+  color: #1fc4b6;
+}
+header.header-image .container-switch [type=checkbox]:checked + .lever:after {
+  background-color: #1fc4b6;
+}
+header.header-image .container-switch .lever:before {
+  background-color: #1fc4b6;
 }
 .categoria {
   *zoom: 1;

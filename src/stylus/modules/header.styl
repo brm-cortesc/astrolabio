@@ -1,5 +1,5 @@
 header
-	background-color rgba(0, 0, 0, 0.75)
+	background-color $Amarillo
 	box-shadow 0px 0px 5px 0px rgba(0, 0, 0, 0.25)
 	center()
 	padding 1rem
@@ -30,11 +30,18 @@ header
 			
 			input
 				background-color $Amarillo
+				border 1px solid darken($Amarillo, 40%)
 				border-radius 0.5rem
 				color darken($Amarillo, 40%)
 				font-size 2rem
 				padding 1rem
+				transitionBase(0.3s)
 				width 93%
+				
+				&:active, &:focus, &:hover
+					background-color $Gris
+					border-color transparent
+					color #000
 		
 	.container
 		&-counter
@@ -54,7 +61,7 @@ header
 				margin 0.5rem auto
 			
 			.fecha, .num
-				color $Amarillo
+				color darken($Amarillo, 40%)
 				font-size 2.1rem
 				font-weight $Bold
 			
@@ -159,7 +166,7 @@ header
 						width 21px 
 
 				[type=checkbox]:checked + .lever
-					background-color $Amarillo
+					background-color darken($Amarillo, 40%)
 					color $Amarillo
 					
 					&:after
@@ -175,4 +182,35 @@ header
 		vertical-align middle
 		
 
+	&.header-image
+		background-color $Verde
 		
+		nav
+			input
+				background-color $Verde
+				border 1px solid darken($Verde, 40%)
+				color darken($Verde, 40%)
+				
+
+		.container
+				&-counter
+					.fecha, .num
+						color darken($Verde, 40%)
+						
+				&-switch
+					[type="checkbox"]:checked  + label
+						&:before
+							border-color $Verde
+							
+					[type=checkbox]:checked + .lever
+						background-color darken($Verde, 40%)
+						color $Verde
+						
+						&:after
+							background-color $Verde
+							
+					.lever
+						&:before
+							background-color $Verde
+				
+				
