@@ -27,6 +27,27 @@
 	figure
 		margin 0 auto
 		position relative
+
+		a			
+			&:before
+				background-color rgba(0, 0, 0, .75)
+				path('download-white.svg')
+				background-repeat no-repeat
+				background-position center
+				background-size 6rem
+				centrarAb()
+				content ''
+				height 100%
+				opacity 0
+				text-align center
+				transitionBase(0.3s)
+				width @height
+				z-index 4
+				
+			&:hover
+				&:before
+					opacity 0.99
+				
 		
 		img
 			max-width 103%
