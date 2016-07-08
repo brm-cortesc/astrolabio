@@ -182,7 +182,15 @@ header
 		max-width 9.3rem
 		vertical-align middle
 		
-
+	&.fixed
+		position fixed
+		width 100%
+		z-index 10
+		
+		.container
+			&-counter	
+				.fecha, .num
+					color $Amarillo
 	&.header-image
 		background-color $Verde
 		

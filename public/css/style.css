@@ -692,6 +692,15 @@ header .logo {
   max-width: 9.3rem;
   vertical-align: middle;
 }
+header.fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+header.fixed .container-counter .fecha,
+header.fixed .container-counter .num {
+  color: #e4aa15;
+}
 header.header-image {
   background-color: #1fc4b6;
 }
@@ -797,11 +806,6 @@ header.header-image .container-switch .lever:before {
   display: block;
   margin: 0 auto;
   max-width: 150%;
-}
-.fixed {
-  position: fixed;
-  width: 100%;
-  z-index: 10;
 }
 .home {
   *zoom: 1;

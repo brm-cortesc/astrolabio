@@ -55,48 +55,7 @@ module.exports = function(grunt) {
 		//Se utiliza para revisar el código js
 		qunit: {
 			files: ['test/**/*.html','public/js/*.js']
-		},
-		//Depura el código js
-		jshint: {
-			options: {
-				jshintrc: true
-			},
-			gruntfile: {
-				src: 'Gruntfile.js'
-			},
-			src: {
-				src: ['public/js/*.js','public/**/*.js']
-			},
-			test: {
-				src: ['test/**/*.js']
-			},
-			css: {
-				src: ['public/css/**/*.*','public/css/*.*']
-			},
-		},
-		stylus: {
-			map:{
-			  files: {
-					'public/css/style.css': 'src/stylus/main.styl'
-				}
-			},
-			options:{
-				 banner: '<%= banner %>', 
-				compress: false,
-				sourcemap:{
-				           inline: true
-				},
-				define: {
-				         DEBUG: debug
-				       }
-			},
-			/*Tarea para compilar stylus, escuchamos solo el archivo base donde se importan todas las librerias*/
-			compile: {
-				files: {
-					'public/css/style.css': 'src/stylus/main.styl'
-				}
-			}
-		},
+		},	
 		// Minifica y combina el código css
 		cssmin: {
 		      combine: {
@@ -105,25 +64,7 @@ module.exports = function(grunt) {
 		      }
 		    }
 		  },
-		
-		/*Cargamos Jade como template engine*/
-		// pug: {
-		// 	 compile: {
-		// 			 options: {
-		// 					 pretty: true,
-		// 					 data:{
-		// 					 	debug: debug //Variable para compilar html con archivos de JS y CSS comprimidos si es false exporta cada archivo, si es true exporta con el link del archivo compilado 
-		// 					 }
-		// 			 },
-		// 			 files: [ {
-		// 				 cwd: "src/jTemplates", //Directorio donde se encuentran los archivos
-		// 				 src: [ '**/*.pug', '!**/partials/*.pug', '!**/modules/*.pug' ],//ignoramos las carpetas con los fragmentos de código
-		// 				 dest: "public/",
-		// 				 expand: true,//Esto  es para exportar el html comprimido o extendido
-		// 				 ext: ".html" //Extensión de los archivos
-		// 			 } ]
-		// 	 }
-		// },
+
 
 		//Se usa para reiniciar automaticamente el navegador al momento de modificar algún archivo *leer reload.txt*
 		browserSync: {
@@ -142,33 +83,7 @@ module.exports = function(grunt) {
 			},
 				//Se utiliza para ejecutar comandos de consola desde el archivo
 		shell: {
-			phantom: {
-				command: 'phantomjs public/js/phantom/screen.js',
-				options: {
-						stdout: true
-				},
-				init: {                      // Target
-							options: {                      // Options
-									stderr: false
-							},
-							command: 'git init'
-					},
-
-				stats: {                      // Target
-							options: {                      // Options
-									stderr: false
-							},
-							command: 'git status'
-					},
-					add: {                      // Target
-							options: {                      // Options
-									stderr: false
-							},
-							command: 'git add .'
-					},
-
-				
-		},
+		
 		stylus:{
 			command: 'stylus -u nib -u jeet --sourcemap src/stylus/main.styl --out public/css/style.css ',
 			options: {
@@ -185,6 +100,22 @@ module.exports = function(grunt) {
 		    script: 'server.js'
 		  }
 		},
+
+		//Generador de archivos/directorio para BackboneJS
+		generate:{
+			options:{
+				dest: 'public/js',
+				map:{
+					'backbone/View': 'views',
+					'backbone/Model': 'models',
+					'backbone/Router': 'routers',
+					'backbone/Collection': 'collections'
+				}
+
+			}
+
+		},
+
 		/*Mantiene una tarea que observa los archivos y ejecuta tareas atumaticamente al momento de detectar cambios, solo se observan los archivos de los preprocesadores para evitar loops.*/
 		watch: {
 			brm: {

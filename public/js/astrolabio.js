@@ -1,24 +1,25 @@
+/*Distribucion de grid*/
 $('.grid').isotope({
   itemSelector: '.grid-item',
   percentPosition: true,
   masonry: {
-    // use outer width of grid-sizer for columnWidth
     columnWidth: '.grid-sizer'
   }
 });
 
-/*sticky header*/
 jQuery(document).ready(function($) {
 	
+	/*sticky header*/
 	$(window).scroll(function() {
 		if( $(window).scrollTop() >= 180 ){
 	
 			$('header')
 				.addClass('fixed')
 				.velocity({
-					backgroundColorAlpha: 0.5
+					backgroundColor: '#000',
+					backgroundColorAlpha: 0.7
 				},{
-					duration: 500,
+					duration: 100,
 					easing: 'easeInOutSine'
 				});
 
@@ -27,7 +28,13 @@ jQuery(document).ready(function($) {
 
 			$('header')
 				.removeClass('fixed')
-				.velocity('reverse');
+				.velocity({
+					backgroundColor: '#e4aa15',
+					backgroundColorAlpha: 1
+				},{
+					duration: 100,
+					easing: 'easeInOutSine'
+				});
 		}
 
 	});
