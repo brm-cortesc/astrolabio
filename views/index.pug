@@ -33,5 +33,9 @@ block content
 	
 
 block Scripts
-	script(src='https://apis.google.com/js/platform.js')
+	if env == "dev"
+		//- script(src='js/models/test.js')
+			
+	else
+		script(src="js/build.min.js")
 

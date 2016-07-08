@@ -1,21 +1,28 @@
 var express = require('express'),
     pug     = require('pug'),
+	app     = express(),
     router  = express.Router(),
-    app     = express(),
+	server  = require('http').createServer(app),
     port    = 5000,
     env 	= 'dev';
 
-  app.use(router);
-  app.use(express.static('public'));
-// module.exports = function (app) {
-// };
+
+
+
 
 app.listen(process.env.PORT || port);
-
+//View engine
+app.use(router);
 app.set('views', __dirname + '/views')
 app.use(express.static(__dirname + '/public'))
-
 app.set('view engine', 'pug');
+
+
+// Add POST, PUT, DELETE methods to the app
+// app.use(express.bodyParser());
+// app.use(express.cookieParser());
+// app.use(express.methodOverride());
+
 
 
 //Rutas para visualizar
