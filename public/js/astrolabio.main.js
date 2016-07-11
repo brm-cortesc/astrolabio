@@ -38,4 +38,11 @@ jQuery(document).ready(function($) {
 		}
 
 	});
+
+
+	var xhr = $.get('/all');
+
+	xhr.done(function (data) {
+		console.log(data);
+	});
 });
