@@ -3,9 +3,24 @@ var express = require('express'),
     pug     = require('pug'),
 	app     = express(),
     router  = express.Router(),
+    HttpProxyAgent = require('http-proxy-agent'),
+    request = require('request'),
     bodyParser = require('body-parser'),
     http = require('http'),
 	config = require('./config');
+
+//Proxy
+var agent = new HttpProxyAgent(config.proxy);
+
+
+request.defaults({jar: true});
+
+//Configuración de consumo de JSON
+var domain = 'http://jsonplaceholder.typicode.com/posts/',
+	search = '/searchst',
+	idImg  =  '/details',
+	dataCuenta = '/details-user',
+	downloadImg = '/download-img';
 
 app.listen(process.env.PORT || config.port );
 //View engine
@@ -40,15 +55,41 @@ var generate = function(url, dest, cb) {
          if (err) throw err;
         console.log('json creado');
       });
-    }, 500);
+    }, 2000);
 };
+
+var rename = function (src) {
+	  setTimeout(function() {
+	      fs.rename(src, 'data.json', function (err) {
+	         if (err) throw err;
+	        console.log('json creado');
+	      });
+	    }, 500);
+	};
 
 //Rutas para visualizar
 
 router.get('/', function (req, res) {
 
-	generate('http://jsonplaceholder.typicode.com/posts/', 'dat.txt');
+	//para generar json con proxy//
+	request({
+		url: domain,
+		agent: agent,
+		timeout: 10000,
+		followRedirect: true,
+		maxRedirects: 10
+	}, function (error, response, body) {
+	  if (!error && response.statusCode == 200) {
+	  		request.post('')
+		   console.log(body);
+
+	  }
+	}).pipe(fs.createWriteStream('test.txt'));
+
+	rename('test.txt');
 	
+	//generar json sin proxy//
+	// generate(domain, 'dat.txt');
 	res.render('index', {
 		env : config.env
 	});
@@ -75,7 +116,7 @@ router.get('/image', function (req, res) {
 } );
 
 
-app.get('/all', function (req, res) {
+app.get('/images/all', function (req, res) {
 	res.setHeader('Content-Type', 'text/json');
 	res.send(config.base);
 
