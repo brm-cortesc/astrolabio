@@ -4,10 +4,12 @@ astrolabio.Models.ImagenModel = Backbone.Model.extend({
 	parse: function (response) {
 		if(response.data){
 			return response.data;
+			console.log(response.data);
 		}else{
-			return response;
+			return response.data;
+			console.log(response.data);
 		}
 	}
 });
 
-astrolabio.Models.Imagen = astrolabio.Models.ImagenModel
+astrolabio.Models.Imagen = astrolabio.Models.ImagenModel;

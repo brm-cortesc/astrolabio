@@ -1,10 +1,12 @@
 var express = require('express'),
     pug     = require('pug'),
+    fs 		= require('fs'),
+    request = require('request'),
 	app     = express(),
     router  = express.Router(),
     bodyParser = require('body-parser'),
-    cookieParser = require('cookie-parser'),
-    methodOverride = require('method-override'),
+    // cookieParser = require('cookie-parser'),
+    // methodOverride = require('method-override'),
 	server  = require('http').createServer(app),
     port    = 5000,
     env 	= 'dev';
@@ -18,7 +20,27 @@ var domain = 'http://igroupsoluciones.com/repo',
 	dataCuenta = '/details-user',
 	downloadImg = '/download-img';
 
-var data = domain+search;
+// var data = domain+search+'/dog';
+// var base = fs.createReadStream('http://jsonplaceholder.typicode.com/posts');
+var base =  fs.readFileSync('./pokemons.json').toString();
+
+var options = {
+  url: 'http://jsonplaceholder.typicode.com/posts',
+  headers: {
+    'User-Agent': 'request'
+  }
+};
+
+var callback = function(error, response, body) {
+  console.log('hola');
+  if (!error && response.statusCode == 200) {
+    var info = body.toString();
+    console.log(info);
+    // console.log(info.forks_count + " Forks");
+  }
+};
+
+
 
 
 app.listen(process.env.PORT || port);
@@ -30,27 +52,16 @@ app.set('view engine', 'pug');
 
 
 // Add POST, PUT, DELETE methods to the app
-// app.use(express.cookieParser());
-// app.use(express.methodOverride());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(bodyParser.json());
-
-// app.use(function (req, res) {
-//   res.setHeader('Content-Type', 'text/json')
-//   res.write('mi JSON:\n')
-//   res.end(JSON.stringify(req.body, null, 2))
-// });
-
-
+app.use(bodyParser.json({ type: 'application/*+json' }));
 
 //Rutas para visualizar
 
 router.get('/', function (req, res) {
-	
 	res.render('index', {
-		env : env,
-		data: data
+		env : env
+		// base: base
 	});
 
 } );
@@ -76,14 +87,16 @@ router.get('/image', function (req, res) {
 
 
 app.get('/all', function (req, res) {
-	
-	res.send(data);
+	res.setHeader('Content-Type', 'text/json');
+	// res.send(base)
+	// request(options, callback)
+	// res.write('mi JSON:\n')
+	 res.send(base);
+	  // res.end(JSON.stringify(req.body, null, 2))
 
 });
 
 router.get('/resultados', function (req, res) {
-
-	// console.log(data);
 	
 	res.render('resultados', {
 		env : env
@@ -93,5 +106,5 @@ router.get('/resultados', function (req, res) {
 } );
 
 
-console.log('Server started, please go to http://localhost:'+port);
-console.log('JSON url: '+data );
+console.log('Server started, please go to http://localhost:'+port+'\n');
+console.log('JSON url: '+base );

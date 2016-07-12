@@ -4,8 +4,11 @@ astrolabio.Collections.ImagenesCollection = Backbone.Collection.extend({
 	url: '',
 	name: 'imagenes',
 	parse: function (response) {
-		console.log( response)
+		console.log( 'hola' + response)
 	}
 
 
 });
+
+
+astrolabio.Collections.imagenes = astrolabio.Collections.ImagenesCollection;
