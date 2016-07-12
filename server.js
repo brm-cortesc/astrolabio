@@ -1,13 +1,12 @@
 var express = require('express'),
     pug     = require('pug'),
     fs 		= require('fs'),
-    request = require('request'),
 	app     = express(),
     router  = express.Router(),
+    request = require('request'),
     bodyParser = require('body-parser'),
-    // cookieParser = require('cookie-parser'),
-    // methodOverride = require('method-override'),
-	server  = require('http').createServer(app),
+    http = require('http'),
+	server  = http.createServer(app),
     port    = 5000,
     env 	= 'dev';
 
@@ -21,25 +20,26 @@ var domain = 'http://igroupsoluciones.com/repo',
 	downloadImg = '/download-img';
 
 // var data = domain+search+'/dog';
-// var base = fs.createReadStream('http://jsonplaceholder.typicode.com/posts');
-var base =  fs.readFileSync('./pokemons.json').toString();
+//Creamos archivo de json para hacer 1 consulta al servidor * query
+var download = function(url, dest, cb) {
+  var file = fs.createWriteStream(dest);
+  var requerir = http.get(url, function(response) {
+    response.pipe(file);
+    file.on('finish', function() {
+      file.close(cb);  // close() is async, call cb after close completes.
+    });
+  });
 
-var options = {
-  url: 'http://jsonplaceholder.typicode.com/posts',
-  headers: {
-    'User-Agent': 'request'
-  }
+  setTimeout(function() {
+  	  fs.rename(dest, 'data.json', function (err) {
+  	  	 if (err) throw err;
+  		  console.log('renamed complete');
+  	  });
+  	}, 500);
 };
 
-var callback = function(error, response, body) {
-  console.log('hola');
-  if (!error && response.statusCode == 200) {
-    var info = body.toString();
-    console.log(info);
-    // console.log(info.forks_count + " Forks");
-  }
-};
 
+var base =  fs.readFileSync('./data.json').toString();
 
 
 
@@ -59,6 +59,15 @@ app.use(bodyParser.json({ type: 'application/*+json' }));
 //Rutas para visualizar
 
 router.get('/', function (req, res) {
+
+
+	request('http://igroupsoluciones.com/repo/', function (error, response, body) {
+	  if (!error && response.statusCode == 200) {
+		download('http://igroupsoluciones.com/repo/searchst/'+query, 'dat.txt');
+	    console.log(body) // Show the HTML 
+	  }
+	});
+	
 	res.render('index', {
 		env : env
 		// base: base
@@ -88,11 +97,7 @@ router.get('/image', function (req, res) {
 
 app.get('/all', function (req, res) {
 	res.setHeader('Content-Type', 'text/json');
-	// res.send(base)
-	// request(options, callback)
-	// res.write('mi JSON:\n')
 	 res.send(base);
-	  // res.end(JSON.stringify(req.body, null, 2))
 
 });
 
@@ -107,4 +112,4 @@ router.get('/resultados', function (req, res) {
 
 
 console.log('Server started, please go to http://localhost:'+port+'\n');
-console.log('JSON url: '+base );
+// console.log('JSON url: '+base );
