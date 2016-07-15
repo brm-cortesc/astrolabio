@@ -42,7 +42,10 @@ jQuery(document).ready(function($) {
 
 	//Instanciamos los colleciones y views
 	window.collections.imagenes = new astrolabio.Collections.ImagenesCollection();
-	window.views.resultados = new astrolabio.Views.viewsResultados();
+
+	window.views.resultados = new astrolabio.Views.viewsResultados($('.grid'));
+
+
 
 	//Consumimos los datos que traemos desde el json//
 	var xhr = $.get('/images/all');
@@ -50,12 +53,12 @@ jQuery(document).ready(function($) {
 	//Los añadimos a la coleccion para poder mostrarlos//
 
 	xhr.done(function(data){
-			console.log(data);
+		
+			data.forEach(function(resultados){
+				// console.log(data.assets.preview.url);
+				window.collections.imagenes.add(resultados);
+				window.views.resultados.render(resultados);
 
-			data.forEach(function(data){
-				console.log(data.assets.preview.url);
-				window
-				window.collections.imagenes.add(data);
 			});
 
 			

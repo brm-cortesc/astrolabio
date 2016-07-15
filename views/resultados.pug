@@ -19,13 +19,22 @@ block content
 	section.grid
 		div.grid-sizer
 
-		script(id="resultados_tpl", type="text/template")
-			figure.grid-item
-				a(href="#")
-					img(src="{{resultados.image}}")
+
+		//- script(id="resultados_tpl", type="text/template").
+
+		//- 	<% _.each(resultados, function(resultado) { %> 
+			
+		//- 		<p>
+		//- 			<%= resultado.id %>
+		//- 		</p>
+		//- 	<%}); %> 
 
 
-		-for(x = 0; x < 10; x++)
+		script(id="resultados_tpl", type="text/template").
+			<p><%= resultado %></p>
+
+
+		//-for(x = 0; x < 10; x++)
 
 			figure.grid-item.grid-item-h2
 				a(href="#")

@@ -2,9 +2,9 @@ astrolabio.Collections.ImagenesCollection = Backbone.Collection.extend({
 
 	model: astrolabio.Models.Imagen,
 	url: '',
-	name: 'imagenes',
+	name: 'resultados',
 	parse: function (response) {
-		console.log(response)
+		return response.data;
 	}
 
 });

@@ -1,11 +1,24 @@
 astrolabio.Views.viewsResultados = Backbone.View.extend({
 
-	className: '',
-	initialize: function ($el) {
-		this.$el = $el
-	},
+	// template: _.template($('#resultados_tpl').html()),
+
+
+	initialize : function(model){
+			var self = this;
+			this.model = model;
+			this.template = $("#resultados_tpl").html();
+		},
 
   	render: function (data) {
+
+		var self = this;
+		var locals = self.model.toJSON();
+
+		this.$el.html(this.template({resultado:locals}));
+
+		return this;
+
+
   	}
 
 });

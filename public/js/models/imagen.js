@@ -1,14 +1,14 @@
 astrolabio.Models.ImagenModel = Backbone.Model.extend({
 	urlRoot: '/images/all',
 	defaults:{},
-	parse: function (response) {
-		if(response.data){
-			return response.data;
-			console.log(response.data);
+	parse: function (resp) {
+
+		if(resp.data){
+			return resp.data;
 		}else{
-			return response.data;
-			console.log(response.data);
+			return resp
 		}
+
 	}
 });
 
