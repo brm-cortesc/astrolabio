@@ -40,9 +40,24 @@ jQuery(document).ready(function($) {
 	});
 
 
-	var xhr = $.get('/all');
+	//Instanciamos los colleciones y views
+	window.collections.imagenes = new astrolabio.Collections.ImagenesCollection();
+	window.views.resultados = new astrolabio.Views.viewsResultados();
 
-	xhr.done(function (data) {
-		console.log(data);
+	//Consumimos los datos que traemos desde el json//
+	var xhr = $.get('/images/all');
+
+	//Los añadimos a la coleccion para poder mostrarlos//
+
+	xhr.done(function(data){
+			console.log(data);
+
+			data.forEach(function(data){
+				console.log(data.assets.preview.url);
+				window
+				window.collections.imagenes.add(data);
+			});
+
+			
 	});
 });

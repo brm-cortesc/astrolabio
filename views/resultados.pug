@@ -19,6 +19,12 @@ block content
 	section.grid
 		div.grid-sizer
 
+		script(id="resultados_tpl", type="text/template")
+			figure.grid-item
+				a(href="#")
+					img(src="{{resultados.image}}")
+
+
 		-for(x = 0; x < 10; x++)
 
 			figure.grid-item.grid-item-h2
@@ -64,3 +70,8 @@ block content
 			figure.grid-item.grid-item-h3
 				a(href="#")
 					img(src="images/dog-1.jpg")
+
+block Scripts
+	script(src='js/models/imagen.js')
+	script(src='js/collections/imagenes.js')
+	script(src='js/views/resultados.js')

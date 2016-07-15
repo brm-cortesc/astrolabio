@@ -19,7 +19,7 @@ block content
 			
 	
 		form#buscar
-			input(type="text")
+			input.input-search(type="text", value="dog")
 			button.btn.btn-search(type="button")
 				img(src="images/lupa.svg")
 
@@ -36,6 +36,7 @@ block Scripts
 	if env == "dev"
 		script(src='js/models/imagen.js')
 		script(src='js/collections/imagenes.js')
+		script(src='js/views/resultados.js')
 			
 	else
 		script(src="js/build.min.js")
