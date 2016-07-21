@@ -43,7 +43,7 @@ jQuery(document).ready(function($) {
 	//Instanciamos los colleciones y views
 	window.collections.imagenes = new astrolabio.Collections.ImagenesCollection();
 
-	window.views.resultados = new astrolabio.Views.viewsResultados();
+	window.views.resultados = new astrolabio.Views.viewsResultados(window.collections.imagenes.models);
 
 	
 
@@ -66,5 +66,5 @@ jQuery(document).ready(function($) {
 			
 	});
 	// window.views.resultados.$el.appendTo($('.grid'));
-	window.views.resultados.render(window.collections.imagenes);
+	window.views.resultados.render();
 });

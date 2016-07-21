@@ -11,12 +11,12 @@ astrolabio.Views.viewsResultados = Backbone.View.extend({
 
   	render: function (data) {
 
-		// var self = this;
-		// var locals = self.model.toJSON();
+		var self = this;
+		var locals = self.model.toJSON();
 
-		// this.$el.html(this.template({resultado:locals}));
+		this.$el.html(this.template({resultado:locals}));
 
-		// return this;
+		return this;
 
 
   	}
