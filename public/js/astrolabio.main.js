@@ -43,7 +43,9 @@ jQuery(document).ready(function($) {
 	//Instanciamos los colleciones y views
 	window.collections.imagenes = new astrolabio.Collections.ImagenesCollection();
 
-	window.views.resultados = new astrolabio.Views.viewsResultados($('.grid'));
+	window.views.resultados = new astrolabio.Views.viewsResultados();
+
+	
 
 
 
@@ -56,11 +58,13 @@ jQuery(document).ready(function($) {
 		
 			data.forEach(function(resultados){
 				// console.log(data.assets.preview.url);
+				// console.log(resultados)
 				window.collections.imagenes.add(resultados);
-				window.views.resultados.render(resultados);
 
 			});
 
 			
 	});
+	// window.views.resultados.$el.appendTo($('.grid'));
+	window.views.resultados.render(window.collections.imagenes);
 });
