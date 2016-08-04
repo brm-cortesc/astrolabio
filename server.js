@@ -71,25 +71,6 @@ var rename = function (src) {
 
 router.get('/', function (req, res) {
 
-	// //para generar json con proxy//
-	// request({
-	// 	url: domain,
-	// 	agent: agent,
-	// 	timeout: 10000,
-	// 	followRedirect: true,
-	// 	maxRedirects: 10
-	// }, function (error, response, body) {
-	//   if (!error && response.statusCode == 200) {
-	//   		request.post('')
-	// 	   console.log(body);
-
-	//   }
-	// }).pipe(fs.createWriteStream('test.txt'));
-
-	// rename('test.txt');
-	
-	//generar json sin proxy//
-	// generate(domain, 'dat.txt');
 	res.render('index', {
 		env : config.env
 	});

@@ -20,18 +20,19 @@ block content
 		div.grid-sizer
 
 
+		script(id="resultados_tpl", type="text/template")
+			<% _.each(Resultados, function(resultado) { %>
+				figure.grid-item
+					a(href="#").
+						<img src='<%= resultado.assets.preview.url %>'>
+							
+
+			<%});%>
+						//- img(src='<%= resultado.assets.preview.url %>')
+
+
 		//- script(id="resultados_tpl", type="text/template").
-
-		//- 	<% _.each(resultados, function(resultado) { %> 
-			
-		//- 		<p>
-		//- 			<%= resultado.id %>
-		//- 		</p>
-		//- 	<%}); %> 
-
-
-		script(id="resultados_tpl", type="text/template").
-			<p><%= resultado %></p>
+		//- 	<p>	<%= Resultados %> </p>
 
 
 		//-for(x = 0; x < 10; x++)
