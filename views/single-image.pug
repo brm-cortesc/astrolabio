@@ -32,7 +32,7 @@ block content
 					a(href="#") Categoría #{c}
 
 			button.btn.btn-descargar(type="button").
-				<span>Descargar</span> <img src="images/download.svg" />
+				<span>Descargar</span> <img src="/images/download.svg" />
 
 
 	aside.related
@@ -41,3 +41,11 @@ block content
 			figure.related-item
 				a(href="#")
 					img(src="images/dog-1.jpg")
+
+
+
+block Scripts
+	script(src='/js/models/imagen.js')
+	script(src='/js/collections/imagenes.js')
+	script(src='/js/views/resultados.js')
+	script(src='/js/routers/base.js')

@@ -47,9 +47,11 @@ jQuery(document).ready(function($) {
 
 
 	//Instanciamos los colleciones y views
+	window.routers = new astrolabio.Routers.BaseRouter();
 	window.collections.imagenes = new astrolabio.Collections.ImagenesCollection();
 
 	window.views.resultados = new astrolabio.Views.viewsResultados(window.collections.imagenes);
+
 
 
 	//Consumimos los datos que traemos desde el json//
@@ -61,8 +63,13 @@ jQuery(document).ready(function($) {
 				//Los añadimos a la coleccion para poder mostrarlos//
 				window.collections.imagenes.add(resultados);
 
-				console.log(resultados.assets.preview.url);
 
+			});
+
+			Backbone.history.start({
+				root : "/",
+				pushState : true,
+				silent : false
 			});
 
 		//Se renderiza una vez se terminan de añadir los objetos a la colección	
@@ -72,6 +79,8 @@ jQuery(document).ready(function($) {
 	});
 
 	$('.grid').append(window.views.resultados.el);
+
+	
 
 	
 

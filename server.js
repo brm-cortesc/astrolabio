@@ -18,6 +18,7 @@ request.defaults({jar: true});
 //Configuración de consumo de JSON
 var domain = 'http://jsonplaceholder.typicode.com/posts/',
 	search = '/searchst',
+	page = '/1',
 	idImg  =  '/details',
 	dataCuenta = '/details-user',
 	downloadImg = '/download-img';
@@ -88,7 +89,19 @@ router.get('/categorias', function (req, res) {
 
 
 
-router.get('/image', function (req, res) {
+router.get('/image/:id', function (req, res) {
+
+	var single;
+
+	for (var i = config.base.length - 1; i >= 0; i--) {
+			single = config.base[i];
+
+			if(single.id === req.params.id){
+				config.base[i] = req.body;
+			}
+		}
+
+	console.log('image '+req.body)
 	
 	res.render('single-image', {
 		env : config.env
