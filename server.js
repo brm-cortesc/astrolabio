@@ -26,8 +26,8 @@ var domain = 'http://jsonplaceholder.typicode.com/posts/',
 app.listen(process.env.PORT || config.port );
 //View engine
 app.use(router);
-app.set('views', __dirname + '/views')
-app.use(express.static(__dirname + '/public'))
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'pug');
 
 // Add POST, PUT, DELETE methods to the app
@@ -68,9 +68,10 @@ var rename = function (src) {
 	    }, 500);
 	};
 
+
 //Rutas para visualizar
 
-router.get('/', function (req, res) {
+router.get('/', function (req, res, next) {
 
 	res.render('index', {
 		env : config.env
@@ -79,7 +80,7 @@ router.get('/', function (req, res) {
 } );
 
 
-router.get('/categorias', function (req, res) {
+router.get('/categorias', function (req, res, next) {
 
 	res.render('categorias', {
 		env : config.env
@@ -89,28 +90,19 @@ router.get('/categorias', function (req, res) {
 
 
 
-router.get('/image/:id', function (req, res) {
+router.get('/image/:id', function (req, res, next) {
 
 	var single;
-
-	for (var i = config.base.length - 1; i >= 0; i--) {
-			single = config.base[i];
-
-			if(single.id === req.params.id){
-				config.base[i] = req.body;
-			}
-		}
-
-	console.log('image '+req.body)
 	
 	res.render('single-image', {
 		env : config.env
 	});
 
+
 } );
 
 
-app.get('/images/all', function (req, res) {
+app.get('/images/all', function (req, res, next) {
 	res.setHeader('Content-Type', 'text/json');
 	res.send(config.base);
 

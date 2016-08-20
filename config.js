@@ -1,7 +1,7 @@
 var config = {};
 
 config.proxy = 'http://172.16.224.4:8080';
-config.port = 5000;
+config.port = 3000;
 config.env = 'dev';
 config.base = require('fs').readFileSync('./data.json').toString();
 

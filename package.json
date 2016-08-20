@@ -31,6 +31,7 @@
     "grunt-generate": "^0.3.2",
     "grunt-nodemon": "^0.4.2",
     "grunt-shell": "^1.1.1",
-    "load-grunt-tasks": "^3.5.0"
+    "load-grunt-tasks": "^3.5.0",
+    "nodemon": "^1.10.0"
   }
 }

@@ -1,0 +1,97 @@
+#body
+	position relative
+	
+
+#camera
+	height 75% 
+	left 25% 
+	position relative
+	top 12.5% 
+	width 50% 
+	
+#bottom-body,
+#bottom-shoot,
+#head-cam,
+#shooter,
+#top-body,
+#top-shoot
+	animation-fill-mode forwards
+	animation-name deformaY
+	transform scaleX(0)
+	
+#line-body,
+#line-shoot
+	animation-fill-mode forwards
+	animation-name deformaX
+	transform scaleY(0)
+
+#bottom-body
+	animation-duration 0.5s
+	animation-timing-function ease-in-out
+	animation-iteration-count 1
+	animation-direction normal
+	animation-delay 0.5s
+	transform-origin bottom center
+
+#bottom-shoot
+	animation-duration 0.5s
+	animation-timing-function ease-in-out
+	animation-iteration-count 1
+	animation-direction normal
+	animation-delay 0.5s
+	transform-origin top center
+
+#head-cam
+	animation-duration 0.5s
+	animation-timing-function ease-in-out
+	animation-iteration-count 1
+	animation-direction normal
+	animation-delay 0
+	transform-origin bottom center
+
+#lens
+	animation scaleCenter 0.5s ease-in-out 0.5s 1 normal forwards
+	transform scale(0)
+	transform-origin center
+
+
+#line-body
+	animation-duration 0.5s
+	animation-timing-function ease-in-out
+	animation-iteration-count 1
+	animation-direction normal
+	animation-delay 0
+	transform-origin center right
+
+#line-shoot
+	animation-duration 0.5s
+	animation-timing-function ease-in-out
+	animation-iteration-count 1
+	animation-direction normal
+	animation-delay 0.7s
+	transform-origin left center
+#red-circ
+	animation scaleCenter 0.2s ease-in-out 0.4s 1 normal forwards
+	transform scale(0)
+	transform-origin center
+#shooter
+	animation-duration 0.5s
+	animation-timing-function ease-in-out
+	animation-iteration-count 1
+	animation-direction normal
+	animation-delay 0
+	transform-origin center bottom
+#top-body
+	animation-duration 0.5s
+	animation-timing-function ease-in-out
+	animation-iteration-count 1
+	animation-direction normal
+	animation-delay 0.2s
+	transform-origin top center
+#top-shoot
+	animation-duration 0.5s
+	animation-timing-function ease-in-out
+	animation-iteration-count 1
+	animation-direction normal
+	animation-delay 0.5s
+	transform-origin bottom center

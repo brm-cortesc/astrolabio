@@ -16,6 +16,16 @@ block content
 	include ../src/templates/partials/header.pug
 	///-Header
 
+
+	div.cargador
+
+		include ../public/images/camera-flat.svg
+
+
+		h2.today-history.
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.
+
 	section.grid
 		div.grid-sizer
 
@@ -24,7 +34,7 @@ block content
 			<% _.each(Resultados, function(resultado, index) { %>
 				//-<% console.log(index) %>
 				
-				figure.grid-item(class).
+				figure.grid-item.
 					<a href="" class="view-img" data-img="<%= resultado.id %>">
 						<img src='<%= resultado.assets.preview.url %>'>
 					</a>

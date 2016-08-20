@@ -7,7 +7,7 @@ $('.grid').isotope({
   }
 });
 
-var keyword = $('.buscador-header input').val(),
+var keyword = $('.buscador-header input'),
 	pg = '1';
 
 jQuery(document).ready(function($) {
@@ -57,53 +57,62 @@ jQuery(document).ready(function($) {
 	window.views.resultados = new astrolabio.Views.viewsResultados(window.collections.imagenes);
 
 
+	var xhr;
 
-	//Consumimos los datos que traemos desde el json//
-	// var xhr = $.get('/searchst/'+keyword+'/'+pg);
-	// var xhr = $.get('/front/images/all');
-	var xhr = $.get('http://history.muffinlabs.com/date');
+	// keyword.on('change', function() {
+	// 	//Consumimos los datos que traemos desde el json//
+	// // var xhr = $.get('/front/images/all');
+	// });
+
+	
+
+	keyword.change(function() {
+		xhr = $.get('/searchst/'+$(this).val()+'/'+pg);
+
+		$('.cargador').removeClass('hidden');
+		// window.collections.imagenes.models.destroy();	
+		console.log(window.collections.imagenes.models.length);
 
 
-	// console.log(window.location)
-
-	xhr.done(function(data){
-
-			console.log('es:' +data);
 		
+
+			
+		// if ( window.collections.imagenes.models.length != 0){
+			window.collections.imagenes.models = [];
+		// };
+		
+		xhr.done(function(data){
+
+			$('.cargador').addClass('hidden');
 			data.forEach(function(resultados){
 				//Los añadimos a la coleccion para poder mostrarlos//
 				window.collections.imagenes.add(resultados);
 
 
-			});
-
-			Backbone.history.start({
-				root : "/",
-				pushState : true,
-				silent : false
 		});
 
-		//Se renderiza una vez se terminan de añadir los objetos a la colección	
-		window.views.resultados.render();
+		console.log(window.collections.imagenes.models)
+
+
+			//Se renderiza una vez se terminan de añadir los objetos a la colección	
+			window.views.resultados.render();
+
+		});
 
 	});
 
-	$('.grid').append(window.views.resultados.el);
+	Backbone.history.start({
+			root : "/",
+			pushState : true,
+			silent : false
+	});
+
+	
+	$('#items').html(window.views.resultados.el);
 
 	
 
 	
-
-	//efemerides//
-
-	var date = 'http://history.muffinlabs.com/date';
-
-		$.getJSON(date, {format: 'jsonp'}, function(data) {
-
-			$.each(data, function(index, val) {
-				 console.log(data);
-			});
-		});
 
 
 });

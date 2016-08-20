@@ -75,7 +75,7 @@ module.exports = function(grunt) {
 							options: {
 									watchTask: true, // < VERY important, so much wow
 									injectChanges: true,
-									proxy: 'http://localhost:5000',
+									proxy: 'http://localhost:3000',
 									port: 5001, // our new port
 									open: true
 							}
