@@ -1,0 +1,98 @@
+.cargador
+	background-color #56cc94
+	centrarAb()
+	cuadrado(100%)
+	
+	.today-history
+		bottom 10%
+		left 25%
+		position absolute
+		text-align center
+		width 50%
+
+.categoria
+	center()
+	
+	.categoria-item
+		span(1/6)
+		max-height 20rem
+		margin 0
+		position relative
+		overflow hidden
+		
+		h2
+			background-color rgba(0, 0, 0, .75)
+			centrarAb()
+			font-size 1.6rem
+			height 100%
+			text-align center
+			transitionBase(0.3s)
+			width @height
+
+			a
+				color #fff
+				left 50%
+				position absolute
+				tex-transform uppercase
+				top 50%
+				transform translate3d(-50%, -50%, 0)
+				
+
+				&:hover
+					text-decoration none
+					
+			&:hover
+				background-color rgba($Amarillo, .75)
+				
+		img
+			display block
+			margin 0 auto
+			max-width 150%			
+
+
+.home
+	center()
+	
+	.btn-helpers
+		center(85.1rem)
+		z-index 1
+		
+		.btn
+			span(1/2.21)
+
+	.logo
+		margin-top 7rem
+		center(26.5rem)
+		
+
+.image
+	margin 2rem auto
+	center()
+	
+	article, .image-selected
+		margin 1rem auto
+		padding 2rem
+		col(1/2.3)
+		
+
+	article
+		h2
+			color #666
+			font-size 2.2rem
+			text-align left
+		
+.related
+	background-color #ddd
+	padding 2rem !important
+	center()
+	
+	h3
+		margin-top 0rem
+
+	.related-item
+		cf()
+		max-height 10rem
+		overflow hidden
+		margin-top 0
+		margin-bottom 0
+		col(1/10)

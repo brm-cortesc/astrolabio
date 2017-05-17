@@ -1,0 +1,43 @@
+//-Layout Base
+extends ../src/templates/base.pug
+
+//-Etiqueta Title
+block title
+
+	title Astrolabio
+
+//-Etiqueta Metadescription
+block description
+	meta(name="description", content="El Astrolabio de BRM" )
+
+
+block content
+
+	section.home
+		
+		img.logo(src="images/astrolabio.svg", alt="Astrolabio", title="Astrolabio")
+			
+	
+		form#buscar
+			input.input-search(type="text", value="")
+			button.btn.btn-search(type="button")
+				img(src="images/lupa.svg")
+
+		article.btn-helpers
+			a.btn.btn-categoria(href="categorias", role="button")  Categorías
+			a.btn.btn-last(role="button")  Últimas Descargas
+
+
+
+	
+	
+
+block Scripts
+	if env == "dev"
+		script(src='js/models/imagen.js')
+		script(src='js/collections/imagenes.js')
+		script(src='js/views/resultados.js')
+			
+	else
+		script(src="js/build.min.js")
+

@@ -1,0 +1,63 @@
+.btn
+	background-color $Verde
+	box-shadow 0px 5px 0px 0px darken($Verde, 40%)
+	color #000
+	padding 2rem
+	text-align center !important
+	transitionBase(0.3s)
+	
+	&:hover
+		text-decoration none
+		
+	&-categoria
+		background-color darken($Verde, 30%)
+		color #fff
+		
+		&:hover
+			background-color lighten(@background-color, 10%)
+		
+	&-categoria, &-last
+		font-size 2.1rem
+		
+	&-descargar
+		background-color darken($Verde, 30%)
+		color #fff
+		font-size 2.2rem
+		max-width 100%
+		padding 1rem
+		position relative
+		text-indent -4.9rem
+		vertical-align middle
+		width 33.3rem
+
+		img
+			background-color $Verde
+			padding 0.5rem
+			position absolute
+			right 0
+			top 0
+			padding 0.5rem 1rem
+			display block
+			width 3.6rem
+			
+
+		&:hover
+			background-color lighten(@background-color, 10%)
+
+	&-last
+		&:hover
+			background-color lighten(@background-color, 10%)
+
+	&-search
+		background-color $Amarillo
+		box-shadow none
+		overflow hidden
+		padding 0.6rem
+		
+		img
+			transitionBase(0.3s)
+		
+		&:hover
+			background-color darken(@background-color, 10%)			
+			img
+				transform scale(1.1)

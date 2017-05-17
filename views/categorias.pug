@@ -1,0 +1,23 @@
+//-Layout Base
+extends ../src/templates/base.pug
+
+//-Etiqueta Title
+block title
+
+	title Astrolabio
+
+//-Etiqueta Metadescription
+block description
+	meta(name="description", content="El Astrolabio de BRM" )
+
+
+block content
+	//Header
+	include ../src/templates/partials/header.pug
+	///-Header
+
+	section.categoria
+		-for(x =0;x < 30; x++)
+			figure.categoria-item
+				h2: a(href="") Sólo con permiso de los modelos #{x}
+				img(src="images/dog-1.jpg")

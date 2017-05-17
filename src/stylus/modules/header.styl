@@ -1,0 +1,225 @@
+header
+	background-color $Amarillo
+	box-shadow 0px 0px 10px 8px rgba(0, 0, 0, 0.25)
+	center()
+	padding 0.5rem
+	position relative
+	transitionBase(0.3s)
+	z-index 3
+	
+	nav, .container-switch, .container-counter
+		col(1/3)
+		
+	
+	nav
+		.buscador-header
+			display inline-block
+			margin-left 2rem
+			position relative
+			vertical-align middle
+			width 70%
+			
+			&:after
+				path('close.svg')
+				content ''
+				height 2.2rem
+				position absolute
+				right 5%
+				top 25%
+				width @height
+				z-index 3
+			
+			input
+				background-color $Amarillo
+				border 1px solid darken($Amarillo, 40%)
+				border-radius 0.5rem
+				color darken($Amarillo, 40%)
+				font-size 2rem
+				padding 1rem
+				transitionBase(0.3s)
+				width 93%
+				
+				&:active, &:focus, &:hover
+					background-color $Gris
+					border-color transparent
+					color #000
+		
+	.container
+		&-counter
+			color #fff
+			text-align center
+			
+			article
+				col(1/2)
+				
+			h2
+				font-size 2.4rem
+				font-weight $Light
+				margin-bottom 0.5rem
+				margin-top 0.5rem
+				
+			p
+				margin 0.5rem auto
+			
+			.fecha, .num
+				color darken($Amarillo, 40%)
+				font-size 2.1rem
+				font-weight $Bold
+			
+		&-switch
+			text-align center
+					
+			.switch
+				color #fff
+				cursor pointer !important
+				margin-top 4rem
+				position relative
+				
+				/* Remove default checkbox */
+				[type="checkbox"]:not(:checked),
+				[type="checkbox"]:checked
+					left -9999px
+					position absolute
+					visibility hidden
+					
+
+
+				// Checkbox Styles
+				[type="checkbox"]
+					position relative
+					& + label
+						cursor pointer !important 
+						display inline-block 
+						font-size 1rem 
+						height 25px 
+						line-height 25px 
+						padding-left 35px 
+						position relative 
+						-webkit-user-select none  /* webkit (safari, chrome) browsers */
+						-moz-user-select none  /* mozilla browsers */
+						-khtml-user-select none  /* webkit (konqueror) browsers */
+						-ms-user-select none  /* IE10+ */
+				
+
+						/* checkbox aspect */
+						&:before
+							border 2px solid #fff
+							border-radius 1px 
+							content '' 
+							height 18px 
+							left 0 
+							margin-top 2px
+							position absolute 
+							top 0 
+							width 18px 
+							z-index 0 
+							transitionBase(0.3s)				 
+
+					&:not(:checked):disabled + label:before
+						border none 
+						background-color #fff
+				 
+
+				[type="checkbox"]:checked  + label
+					&:before
+						-webkit-backface-visibility hidden
+						border-bottom 2px solid $Amarillo
+						border-left 2px solid transparent 
+						border-right 2px solid $Amarillo
+						border-top 2px solid transparent 
+						height 22px 
+						left -3px 
+						top -4px 
+						transform rotate(40deg)
+						transform-origin (100% 100%)
+						width 12px
+				
+
+					&:disabled + label:before
+						border-right 2px solid #fff
+						border-bottom 2px solid #fff
+				
+				.lever
+					background-color #fff
+					border-radius 15px 
+					content "" 
+					cursor pointer
+					display inline-block 
+					height 15px 
+					margin 0 16px 
+					margin-right 10px 
+					position relative 
+					transition background 0.3s ease 
+					vertical-align middle 
+					width 40px 
+					
+					&:before						
+						background-color $Amarillo
+						border-radius 21px 
+						box-shadow 0 1px 3px 1px rgba(0, 0, 0, 0.4) 
+						content "" 
+						display inline-block 
+						height 21px 
+						left -5px;
+						position absolute 
+						top -3px;
+						transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease
+						width 21px 
+
+				[type=checkbox]:checked + .lever
+					background-color darken($Amarillo, 40%)
+					color $Amarillo
+					
+					&:after
+						background-color $Amarillo
+						
+					&:before
+						left 24px
+		
+
+	.logo
+		display inline-block
+		max-width 9.3rem
+		vertical-align middle
+		
+	&.fixed
+		position fixed
+		width 100%
+		z-index 10
+		
+		.container
+			&-counter	
+				.fecha, .num
+					color $Amarillo
+	&.header-image
+		background-color $Verde
+		
+		nav
+			input
+				background-color $Verde
+				border 1px solid darken($Verde, 40%)
+				color darken($Verde, 40%)
+				
+
+		.container
+				&-counter
+					.fecha, .num
+						color darken($Verde, 40%)
+						
+				&-switch
+					[type="checkbox"]:checked  + label
+						&:before
+							border-color $Verde
+							
+					[type=checkbox]:checked + .lever
+						background-color darken($Verde, 40%)
+						color $Verde
+						
+						&:after
+							background-color $Verde
+							
+					.lever
+						&:before
+							background-color $Verde
+				
+				
