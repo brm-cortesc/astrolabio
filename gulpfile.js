@@ -1,17 +1,21 @@
 const gulp      = require('gulp'),
-  concat      = require('gulp-concat'),
-  rename      = require('gulp-rename'),
-  minifyCSS   = require('gulp-minify-css'),
-  uglify      = require('gulp-uglify'),
-  data        = require('gulp-data'),
-  header      = require('gulp-header'),
-  sourcemaps  = require('gulp-sourcemaps'),
-  stylus      = require('gulp-stylus'),
-  nib         = require('nib'),
-  jeet        = require('jeet'),
-  path        = require('path'),
-  plumber     = require('gulp-plumber'),
-  argv        = require('yargs').argv;
+  concat     = require('gulp-concat'),
+  rename     = require('gulp-rename'),
+  minifyCSS  = require('gulp-minify-css'),
+  uglify     = require('gulp-uglify'),
+  data       = require('gulp-data'),
+  header     = require('gulp-header'),
+  sourcemaps = require('gulp-sourcemaps'),
+  stylus     = require('gulp-stylus'),
+  nib        = require('nib'),
+  jeet       = require('jeet'),
+  path       = require('path'),
+  plumber    = require('gulp-plumber'),
+  argv       = require('yargs').argv,
+  babel      = require('babelify'),
+  browserify = require('browserify'),
+  watchify   = require('watchify'),
+  source = require('vinyl-source-stream');
 
 //data
 const pkg   = require('./frontend.json'),
@@ -58,9 +62,6 @@ const baseDir = (debug)?'':routes.app;
 //arreglo concatenar JS en el orden en el que se cargan
 const jsLibs = [
   baseDir + routes.js +'libs/bootstrap.min.js',
-  baseDir + routes.js +'libs/slick.js',
-  baseDir + routes.js +'libs/masonry.pkgd.min.js',
-  baseDir + routes.js +'libs/jquery.visible.min.js'
 ];
 
 //Tarea para comprimir las libreriras JS
@@ -101,6 +102,38 @@ gulp.task('css',  () =>{
 
 });
 
+
+//Funcion para recargar el bundle en watch
+compileJS = (debug) =>{
+  let bundle = browserify(routes.src + 'app/index.js', {debug:true});
+
+  if(debug){
+    bundle = watchify(bundle);
+    bundle.on('update',  () =>{
+      console.log(':::::::::BUILD:::::::::');
+      rebundle();
+
+      });
+  }
+
+
+  rebundle = ()=>{
+    bundle
+    .transform(babel,{presets:['es2015']})
+    .bundle()
+    // .plumber()
+    .on('error', function (err) { console.log(err); this.emit('end') })
+    .pipe(source('index.js'))
+    .pipe(rename('app.js'))
+    .pipe(gulp.dest(routes.app+ routes.js));
+
+  };
+
+  rebundle();
+
+}
+
+
 //Concatenar y minificar CSS
 gulp.task('minicss',  () =>{
   return gulp.src([routes.app + routes.css + '**/*.css', '!'+routes.app + routes.css +'/**/'+pkg.name+'.min.css'])
@@ -112,6 +145,11 @@ gulp.task('minicss',  () =>{
 
 });
 
+gulp.task('build', () =>{
+  return compileJS(debug);
+
+});
+
 
 //tarea que observa cambios para recargar el navegador
 gulp.task('watch', ['css'],  () =>{
@@ -120,5 +158,6 @@ gulp.task('watch', ['css'],  () =>{
   gulp.watch('public/js/**/*.js');
   gulp.watch(routes.app + 'images/**/*.{gif,svg,jpg,png}', {cwd:'./'}); //Images
   gulp.watch(routes.app + 'fonts/**/*.{svg,eot,ttf,woff,woff2}',{cwd:'./'}); //Fonts
+  return compileJS(debug);
 
 });

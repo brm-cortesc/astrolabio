@@ -13,6 +13,8 @@ block description
 
 block content
 
+	header.container-header
+
 	section.home
 		
 		img.logo(src="images/astrolabio.svg", alt="Astrolabio", title="Astrolabio")
@@ -32,12 +34,12 @@ block content
 	
 	
 
-block Scripts
-	if env == "dev"
-		script(src='js/models/imagen.js')
-		script(src='js/collections/imagenes.js')
-		script(src='js/views/resultados.js')
+//- block Scripts
+//- 	if env == "dev"
+//- 		//- script(src='js/models/imagen.js')
+//- 		//- script(src='js/collections/imagenes.js')
+//- 		//- script(src='js/views/resultados.js')
 			
-	else
-		script(src="js/build.min.js")
+//- 	else
+//- 		script(src="js/build.min.js")
 

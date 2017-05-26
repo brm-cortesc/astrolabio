@@ -29,3 +29,12 @@ router.get('/', function (req, res, next) {
 	});
 
 } );
+
+
+router.get('/categorias', function (req, res, next) {
+
+	res.render('index', {
+		env : env
+	});
+
+} );
