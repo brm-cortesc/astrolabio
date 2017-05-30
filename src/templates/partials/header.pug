@@ -1,61 +1,61 @@
 //Header
 
-if titulo == "Image"
-	header.header-image
-		nav
-			a(href="/"): img.logo(src="/images/astrolabio.svg", alt="Astrolabio", title="Astrolabio")
+//- if titulo == "Image"
+//- 	header.header-image
+//- 		nav
+//- 			a(href="/"): img.logo(src="/images/astrolabio.svg", alt="Astrolabio", title="Astrolabio")
 			
-			div.buscador-header
-				input(type="text")
+//- 			div.buscador-header
+//- 				input(type="text")
 
-		div.container-switch
-			div.switch
-				label Local
-					input(type="checkbox" checked)
-					span.lever
-					| shutterstock
+//- 		div.container-switch
+//- 			div.switch
+//- 				label Local
+//- 					input(type="checkbox" checked)
+//- 					span.lever
+//- 					| shutterstock
 
-		div.container-counter
-			h2 Descargas
+//- 		div.container-counter
+//- 			h2 Descargas
 
-			article
-				p.diarias.
-					Diarias <span class="num" >32</span>
+//- 			article
+//- 				p.diarias.
+//- 					Diarias <span class="num" >32</span>
 				
-				p.mes.
-					Restantes <span class="num" >1000</span>
+//- 				p.mes.
+//- 					Restantes <span class="num" >1000</span>
 
-			article
-				p Disponible hasta
-				p.fecha 20/06/2016
+//- 			article
+//- 				p Disponible hasta
+//- 				p.fecha 20/06/2016
 
-else
-	header
-		nav
-			a(href="/"): img.logo(src="/images/astrolabio.svg", alt="Astrolabio", title="Astrolabio")
+//- else
+header.container-header.hidden
+	nav
+		a(href="/"): img.logo(src="/images/astrolabio.svg", alt="Astrolabio", title="Astrolabio")
+		
+		form#buscar-header
+			input.input-search(type="text", value="")
+
+	div.container-switch
+		div.switch
+			label Local
+				input(type="checkbox" checked)
+				span.lever
+				| shutterstock
+
+	div.container-counter
+		h2 Descargas
+
+		article
+			p.diarias.
+				Diarias <span class="num" >32</span>
 			
-			div.buscador-header
-				input(type="text")
+			p.mes.
+				Restantes <span class="num" >1000</span>
 
-		div.container-switch
-			div.switch
-				label Local
-					input(type="checkbox" checked)
-					span.lever
-					| shutterstock
-
-		div.container-counter
-			h2 Descargas
-
-			article
-				p.diarias.
-					Diarias <span class="num" >32</span>
-				
-				p.mes.
-					Restantes <span class="num" >1000</span>
-
-			article
-				p Disponible hasta
-				p.fecha 20/06/2016
+		article
+			p Disponible hasta
+			p.fecha 20/06/2016
 
 ///-Header

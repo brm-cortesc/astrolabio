@@ -34,7 +34,7 @@ body
 		
 	//-Layout del header (logo, menu, login, etc)
 
-	//- include header.pug
+	include partials/header.pug
 	
 	//-Contenido de cada page
 	
@@ -47,8 +47,9 @@ body
 	
 	//-Acá se agregan los scripts que pueden estar para una sola página
 	block Scripts
-	//-for(x =0; x < libs.length; x++)
-		script(src=libs[x])
+	//- for(x =0; x < libs.length; x++)
+	//- 	script(src=libs[x])
+	script(src='js/libs/jquery.js')
 	script(type='application/javascript' src='js/app.js')
 
 

@@ -1,15 +1,19 @@
 const page = require('page');
-const _ = require('underscore');
+const yo = require('yo-yo');
 const header = require('../header');
+const search = require('../search');
+const template = require('./template');
 
-page('/categorias', header, () =>{
+page('/categorias', header, search, (ctx, next) =>{
 
-	// let categorias = document.body;
 	let titulo = '<h1> categorías </h1>';
 
-	// let nums = [1,2,3] 
-	// _.each(nums, console.log(nums) )
+	const ele = document.getElementById('container');
 
-	// document.body.innerHTML = titulo;
+
+	ele.innerHTML = '';
+	ele.appendChild(template('categoria', titulo));
+
+	console.log('managin template with var');
 
 });

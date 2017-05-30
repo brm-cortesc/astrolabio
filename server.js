@@ -31,6 +31,15 @@ router.get('/', function (req, res, next) {
 } );
 
 
+router.get('/resultados', function (req, res, next) {
+
+	res.render('index', {
+		env : env
+	});
+
+} );
+
+
 router.get('/categorias', function (req, res, next) {
 
 	res.render('index', {

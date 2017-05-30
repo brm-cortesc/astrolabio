@@ -1,5 +1,8 @@
 const page = require('page');
+const axios = require('axios');
+const search = require('../search');
 
-page('/', function () {
-	console.log('este es el home')
+page('/', search,  ()=>{
+
+
 });

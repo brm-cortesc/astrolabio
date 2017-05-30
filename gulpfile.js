@@ -61,7 +61,7 @@ const banner = ['/**',
 const baseDir = (debug)?'':routes.app;
 //arreglo concatenar JS en el orden en el que se cargan
 const jsLibs = [
-  baseDir + routes.js +'libs/bootstrap.min.js',
+  baseDir + routes.js +'libs/jquery.js',
 ];
 
 //Tarea para comprimir las libreriras JS
