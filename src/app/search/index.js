@@ -13,7 +13,7 @@ module.exports = function search(ctx, next) {
 
 		console.log(word.val());
 
-		let url = 'http://igroupsoluciones.com/repo/searchst/'+keyw;
+		let url = '//igroupsoluciones.com/repo/searchst/'+keyw;
 
 		axios
 			.get(url,{
