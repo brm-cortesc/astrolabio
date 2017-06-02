@@ -9,11 +9,10 @@
   "author": "Cristian Cortés <cristian.cortes@brm.com.co>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.16.1",
     "express": "^4.15.2",
     "page": "^1.7.1",
     "pug": "^2.0.0-rc.1",
-    "underscore": "^1.8.3",
+    "shutterstock": "^0.13.0",
     "yo-yo": "^1.4.1"
   },
   "devDependencies": {

@@ -91,6 +91,7 @@ gulp.task('css',  () =>{
     ], // cargamos nib para uso de css3
     compress: false
   }))
+  .pipe(plumber())
   // .on('error', onError)
   .pipe(rename('style.css')) //renombramos el archivo
   .pipe(gulp.dest(routes.app + routes.css)) // destino del archivo

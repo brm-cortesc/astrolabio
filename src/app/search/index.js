@@ -1,30 +1,13 @@
-const axios = require('axios');
+const shutterstock = require('shutterstock');
 
-module.exports = function search(ctx, next) {
+const Api = shutterstock.v2({
+	clientId: '750f60456a214f7f5bcb',
+	clientSecret: 'c335a827e42905324a9b6507e8e1dd71ba8dc9d3',
 
-	let word = $('#buscar .input-search');
+});
 
 
-	word.on('change', ()=>{
 
-		let keyw = word.val();
-
-		// console.log(keyw)
-
-		console.log(word.val());
-
-		let url = '//igroupsoluciones.com/repo/searchst/'+keyw;
-
-		axios
-			.get(url,{
-				withCredentials:true
-			})
-			.then(function (res) {
-				console.log(res);
-				next();
-			})
-			
-	});
-	
-	next();
-};
+module.exports = {
+	api: Api
+}
