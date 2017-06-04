@@ -1,13 +1,26 @@
-const shutterstock = require('shutterstock');
+let xhr = 'image/search/'
 
-const Api = shutterstock.v2({
-	clientId: '750f60456a214f7f5bcb',
-	clientSecret: 'c335a827e42905324a9b6507e8e1dd71ba8dc9d3',
-
-});
+const Search = (word, pg) =>{
 
 
+	word.on('change', () =>{
 
-module.exports = {
-	api: Api
+		let keyw = word.val();
+
+		axios.get(xhr + keyw + pg)
+			.then((res)=>{
+
+				console.log(res)
+
+			});
+
+	} );
+
+
+};
+
+
+module.exports = function (ctx, next) {
+	Search();
+	next();
 }

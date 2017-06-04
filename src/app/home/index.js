@@ -1,37 +1,46 @@
 const page = require('page');
 const shutterstock = require('shutterstock');
-const astro = require('../search');
+const request = require('superagent');
 
 page('/', ()=>{
 
-	console.log('hola esss')
-	// console.log(astro)
+	console.log('home cargada')
 
-	let word = $('#buscar .input-search');
+	let input = $('#buscar .input-search'); 
 
-	astro.api.image.get( '461740330' , function (err, data) {
-		// if (err) throw err;
-		console.log(data);
+	Search(input, 1);
 
-		$('#container').html(data)
-	} );
+});
 
-	
+let xhr = 'image/search/'
 
-	word.on('change', ()=>{
+const Search = (word, pg) =>{
+
+
+	word.on('change', () =>{
 
 		let keyw = word.val();
+		request
+			.get(xhr + keyw +'/'+ pg)
+			.end( (err, res)=>{
 
-		console.log(keyw)
+				if (err) console.log(err)
 
-		astro.api.image.get( keyw , function (err, data) {
-			// if (err) throw err;
-			console.log(data);
-		} );
+				console.log(res.body);
 
-
-	});
-
+			} )
 
 
-}); 
+		// axios.get(xhr + keyw +'/'+ pg)
+		// 	.then((res)=>{
+
+		// 		console.log(res)
+
+		// 	});
+
+
+
+	} );
+
+
+};

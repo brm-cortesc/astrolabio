@@ -3,6 +3,7 @@ const pug     = require('pug');
 const app     = express();
 const router  = express.Router();
 const http    = require('http');
+const shutterstock = require('shutterstock');
 const env = 'dev';
 
 
@@ -22,7 +23,18 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'pug');
 
 
-router.get('/', function (req, res, next) {
+
+
+router.get('/', (req,res,next)=>{
+
+	res.render('index', {
+		env : env
+	});
+
+});
+
+
+router.get('/resultados', (req,res,next)=>{
 
 	res.render('index', {
 		env : env
@@ -31,7 +43,7 @@ router.get('/', function (req, res, next) {
 } );
 
 
-router.get('/resultados', function (req, res, next) {
+router.get('/categorias', (req,res,next)=>{
 
 	res.render('index', {
 		env : env
@@ -40,10 +52,27 @@ router.get('/resultados', function (req, res, next) {
 } );
 
 
-router.get('/categorias', function (req, res, next) {
+router.get('/image/*', (req,res,next)=>{
+	res.setHeader('content-type', 'text/json');
+	next();
+});
 
-	res.render('index', {
-		env : env
+router.get('/image/search/:keyw/:pg', (req,res,next)=>{
+
+
+	const keyw =  req.params.keyw;
+	const pg =  req.params.pg;
+
+	let opts ={
+		keyw,
+		page: pg
+	};
+
+	Api.image.search(opts, function (err, data) {
+		if(err) res.send(err);
+		// page(pg);
+		res.send(data);
 	});
 
-} );
+});
+
