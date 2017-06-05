@@ -4,7 +4,7 @@
  * @link https://github.com/cortesc/HTML
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Sat Jun 03 2017 23:08:09 GMT-0500 (COT)
+ *Mon Jun 05 2017 10:23:08 GMT-0500 (COT)
  */
 html {
   font-family: sans-serif;
@@ -201,6 +201,9 @@ textarea {
   -webkit-appearance: button;
   font: inherit;
 }
+* {
+  background: rgba(0,0,255,0.05);
+}
 ::selection {
   background: #e4aa15;
   color: #000;
@@ -329,8 +332,10 @@ input:focus {
   transform: scale(1.1);
 }
 .grid {
+  *zoom: 1;
+  *zoom: 1;
   width: auto;
-  max-width: 1440px;
+  max-width: 100%;
   float: none;
   display: block;
   margin-right: auto;
@@ -338,12 +343,24 @@ input:focus {
   padding-left: 0;
   padding-right: 0;
 }
-.grid::after {
+.grid:before,
+.grid:after {
   content: '';
   display: table;
+}
+.grid:after {
+  clear: both;
+}
+.grid:before,
+.grid:after {
+  content: '';
+  display: table;
+}
+.grid:after {
   clear: both;
 }
 .grid-item {
+  *zoom: 1;
   float: left;
   clear: none;
   text-align: inherit;
@@ -351,9 +368,12 @@ input:focus {
   margin-left: 0%;
   margin-right: 0%;
 }
-.grid-item::after {
+.grid-item:before,
+.grid-item:after {
   content: '';
   display: table;
+}
+.grid-item:after {
   clear: both;
 }
 .grid-item {
@@ -416,8 +436,9 @@ header {
   background-color: #e4aa15;
   -webkit-box-shadow: 0px 0px 10px 8px rgba(0,0,0,0.25);
   box-shadow: 0px 0px 10px 8px rgba(0,0,0,0.25);
+  *zoom: 1;
   width: auto;
-  max-width: 1440px;
+  max-width: 100%;
   float: none;
   display: block;
   margin-right: auto;
@@ -433,10 +454,43 @@ header {
   transition: all ease-in-out 0.3s;
   z-index: 3;
 }
-header::after {
+header:before,
+header:after {
   content: '';
   display: table;
+}
+header:after {
   clear: both;
+}
+header nav,
+header .container-switch,
+header .container-counter {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 31.999999999999996%;
+  margin-left: 0%;
+  margin-right: 2%;
+}
+header nav:before,
+header .container-switch:before,
+header .container-counter:before,
+header nav:after,
+header .container-switch:after,
+header .container-counter:after {
+  content: '';
+  display: table;
+}
+header nav:after,
+header .container-switch:after,
+header .container-counter:after {
+  clear: both;
+}
+header nav:last-child,
+header .container-switch:last-child,
+header .container-counter:last-child {
+  margin-right: 0%;
 }
 header nav #buscar-header {
   display: inline-block;
@@ -479,6 +533,26 @@ header nav #buscar-header input:hover {
 header .container-counter {
   color: #fff;
   text-align: center;
+}
+header .container-counter article {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 49%;
+  margin-left: 0%;
+  margin-right: 2%;
+}
+header .container-counter article:before,
+header .container-counter article:after {
+  content: '';
+  display: table;
+}
+header .container-counter article:after {
+  clear: both;
+}
+header .container-counter article:last-child {
+  margin-right: 0%;
 }
 header .container-counter h2 {
   font-size: 2.4rem;
@@ -678,8 +752,9 @@ header.header-image .container-switch .lever:before {
   width: 50%;
 }
 .categoria {
+  *zoom: 1;
   width: auto;
-  max-width: 1440px;
+  max-width: 100%;
   float: none;
   display: block;
   margin-right: auto;
@@ -687,12 +762,16 @@ header.header-image .container-switch .lever:before {
   padding-left: 0;
   padding-right: 0;
 }
-.categoria::after {
+.categoria:before,
+.categoria:after {
   content: '';
   display: table;
+}
+.categoria:after {
   clear: both;
 }
 .categoria .categoria-item {
+  *zoom: 1;
   float: left;
   clear: none;
   text-align: inherit;
@@ -704,9 +783,12 @@ header.header-image .container-switch .lever:before {
   position: relative;
   overflow: hidden;
 }
-.categoria .categoria-item::after {
+.categoria .categoria-item:before,
+.categoria .categoria-item:after {
   content: '';
   display: table;
+}
+.categoria .categoria-item:after {
   clear: both;
 }
 .categoria .categoria-item h2 {
@@ -751,8 +833,9 @@ header.header-image .container-switch .lever:before {
   max-width: 150%;
 }
 .home {
+  *zoom: 1;
   width: auto;
-  max-width: 1440px;
+  max-width: 100%;
   float: none;
   display: block;
   margin-right: auto;
@@ -760,12 +843,16 @@ header.header-image .container-switch .lever:before {
   padding-left: 0;
   padding-right: 0;
 }
-.home::after {
+.home:before,
+.home:after {
   content: '';
   display: table;
+}
+.home:after {
   clear: both;
 }
 .home .btn-helpers {
+  *zoom: 1;
   width: auto;
   max-width: 85.1rem;
   float: none;
@@ -776,12 +863,16 @@ header.header-image .container-switch .lever:before {
   padding-right: 0;
   z-index: 1;
 }
-.home .btn-helpers::after {
+.home .btn-helpers:before,
+.home .btn-helpers:after {
   content: '';
   display: table;
+}
+.home .btn-helpers:after {
   clear: both;
 }
 .home .btn-helpers .btn {
+  *zoom: 1;
   float: left;
   clear: none;
   text-align: inherit;
@@ -789,13 +880,17 @@ header.header-image .container-switch .lever:before {
   margin-left: 0%;
   margin-right: 0%;
 }
-.home .btn-helpers .btn::after {
+.home .btn-helpers .btn:before,
+.home .btn-helpers .btn:after {
   content: '';
   display: table;
+}
+.home .btn-helpers .btn:after {
   clear: both;
 }
 .home .logo {
   margin-top: 7rem;
+  *zoom: 1;
   width: auto;
   max-width: 26.5rem;
   float: none;
@@ -805,15 +900,19 @@ header.header-image .container-switch .lever:before {
   padding-left: 0;
   padding-right: 0;
 }
-.home .logo::after {
+.home .logo:before,
+.home .logo:after {
   content: '';
   display: table;
+}
+.home .logo:after {
   clear: both;
 }
 .image {
   margin: 2rem auto;
+  *zoom: 1;
   width: auto;
-  max-width: 1440px;
+  max-width: 100%;
   float: none;
   display: block;
   margin-right: auto;
@@ -821,15 +920,40 @@ header.header-image .container-switch .lever:before {
   padding-left: 0;
   padding-right: 0;
 }
-.image::after {
+.image:before,
+.image:after {
   content: '';
   display: table;
+}
+.image:after {
   clear: both;
 }
 .image article,
 .image .image-selected {
   margin: 1rem auto;
   padding: 2rem;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 42.34782608695652%;
+  margin-left: 0%;
+  margin-right: 2%;
+}
+.image article:before,
+.image .image-selected:before,
+.image article:after,
+.image .image-selected:after {
+  content: '';
+  display: table;
+}
+.image article:after,
+.image .image-selected:after {
+  clear: both;
+}
+.image article:last-child,
+.image .image-selected:last-child {
+  margin-right: 0%;
 }
 .image article h2 {
   color: #666;
@@ -839,8 +963,9 @@ header.header-image .container-switch .lever:before {
 .related {
   background-color: #ddd;
   padding: 2rem !important;
+  *zoom: 1;
   width: auto;
-  max-width: 1440px;
+  max-width: 100%;
   float: none;
   display: block;
   margin-right: auto;
@@ -848,24 +973,55 @@ header.header-image .container-switch .lever:before {
   padding-left: 0;
   padding-right: 0;
 }
-.related::after {
+.related:before,
+.related:after {
   content: '';
   display: table;
+}
+.related:after {
   clear: both;
 }
 .related h3 {
   margin-top: 0rem;
 }
 .related .related-item {
+  *zoom: 1;
   max-height: 10rem;
   overflow: hidden;
   margin-top: 0;
   margin-bottom: 0;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 8.2%;
+  margin-left: 0%;
+  margin-right: 2%;
+}
+.related .related-item:before,
+.related .related-item:after {
+  content: '';
+  display: table;
+}
+.related .related-item:after {
+  clear: both;
+}
+.related .related-item:before,
+.related .related-item:after {
+  content: '';
+  display: table;
+}
+.related .related-item:after {
+  clear: both;
+}
+.related .related-item:last-child {
+  margin-right: 0%;
 }
 #container #buscar {
   background-color: #ddd;
   -webkit-box-shadow: 0px 6px 6px 0px rgba(0,0,0,0.15);
   box-shadow: 0px 6px 6px 0px rgba(0,0,0,0.15);
+  *zoom: 1;
   width: auto;
   max-width: 85.1rem;
   float: none;
@@ -878,9 +1034,12 @@ header.header-image .container-switch .lever:before {
   position: relative;
   z-index: 2;
 }
-#container #buscar::after {
+#container #buscar:before,
+#container #buscar:after {
   content: '';
   display: table;
+}
+#container #buscar:after {
   clear: both;
 }
 #container #buscar button {

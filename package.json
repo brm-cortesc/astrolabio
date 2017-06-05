@@ -9,6 +9,7 @@
   "author": "Cristian Cortés <cristian.cortes@brm.com.co>",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "page": "^1.7.1",
     "pug": "^2.0.0-rc.1",
@@ -32,7 +33,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^2.1.2",
-    "jeet": "^7.1.0",
+    "jeet": "^6.1.1",
     "nib": "^1.1.2",
     "nodemon": "^1.11.0",
     "vinyl-source-stream": "^1.1.0",

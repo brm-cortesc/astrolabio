@@ -4,9 +4,16 @@ const app     = express();
 const router  = express.Router();
 const http    = require('http');
 const shutterstock = require('shutterstock');
-const env = 'dev';
+//env variables
+require('dotenv').load();
 
+//Shutterstock Credentials//
 
+const Api = shutterstock.v2({
+	clientId: process.env.clientID,
+	clientSecret: process.env.clientSecret
+
+});
 
 app.listen(process.env.PORT || 5000, function (err) {
 	 if (err) return console.log('Hubo un error'), process.exit(1);
@@ -28,7 +35,7 @@ app.set('view engine', 'pug');
 router.get('/', (req,res,next)=>{
 
 	res.render('index', {
-		env : env
+		env : process.env.ENV
 	});
 
 });
@@ -37,7 +44,7 @@ router.get('/', (req,res,next)=>{
 router.get('/resultados', (req,res,next)=>{
 
 	res.render('index', {
-		env : env
+		env : process.env.ENV
 	});
 
 } );
@@ -46,7 +53,7 @@ router.get('/resultados', (req,res,next)=>{
 router.get('/categorias', (req,res,next)=>{
 
 	res.render('index', {
-		env : env
+		env : process.env.ENV
 	});
 
 } );
@@ -69,8 +76,7 @@ router.get('/image/search/:keyw/:pg', (req,res,next)=>{
 	};
 
 	Api.image.search(opts, function (err, data) {
-		if(err) res.send(err);
-		// page(pg);
+		if(err) res.send('No se pudo cargar'+ '\n' + err);
 		res.send(data);
 	});
 

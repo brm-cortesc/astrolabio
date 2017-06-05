@@ -1,5 +1,5 @@
 # Build and Release Folders
-
+.env
 *.mp4
 *.ogg
 *.map

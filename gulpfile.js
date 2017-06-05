@@ -19,7 +19,8 @@ const gulp      = require('gulp'),
 
 //data
 const pkg   = require('./frontend.json'),
-      debug = argv.debug;
+      //debug = argv.debug;
+      env = process.env.ENV;
 
 
 //Rutas
@@ -58,7 +59,7 @@ const banner = ['/**',
 ].join('\n');
 
 
-const baseDir = (debug)?'':routes.app;
+const baseDir = (env)?'':routes.app;
 //arreglo concatenar JS en el orden en el que se cargan
 const jsLibs = [
   baseDir + routes.js +'libs/jquery.js',
@@ -105,10 +106,10 @@ gulp.task('css',  () =>{
 
 
 //Funcion para recargar el bundle en watch
-compileJS = (debug) =>{
+compileJS = (env) =>{
   let bundle = browserify(routes.src + 'app/index.js', {debug:true});
 
-  if(debug){
+  if(env){
     bundle = watchify(bundle);
     bundle.on('update',  () =>{
       console.log(':::::::::BUILD:::::::::');
@@ -147,7 +148,8 @@ gulp.task('minicss',  () =>{
 });
 
 gulp.task('build', () =>{
-  return compileJS(debug);
+  return compileJS(env);
+  console.log(':::::::::COMPILED:::::::::');
 
 });
 
@@ -159,6 +161,6 @@ gulp.task('watch', ['css'],  () =>{
   gulp.watch('public/js/**/*.js');
   gulp.watch(routes.app + 'images/**/*.{gif,svg,jpg,png}', {cwd:'./'}); //Images
   gulp.watch(routes.app + 'fonts/**/*.{svg,eot,ttf,woff,woff2}',{cwd:'./'}); //Fonts
-  return compileJS(debug);
+  return compileJS(env);
 
 });
