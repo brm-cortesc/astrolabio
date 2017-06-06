@@ -31,7 +31,6 @@ app.set('view engine', 'pug');
 
 
 
-
 router.get('/', (req,res,next)=>{
 
 	res.render('index', {
@@ -58,11 +57,15 @@ router.get('/categorias', (req,res,next)=>{
 
 } );
 
+//Set headers to JSON
 
 router.get('/image/*', (req,res,next)=>{
 	res.setHeader('content-type', 'text/json');
 	next();
 });
+
+
+//API
 
 router.get('/image/search/:keyw/:pg', (req,res,next)=>{
 
@@ -75,10 +78,13 @@ router.get('/image/search/:keyw/:pg', (req,res,next)=>{
 		page: pg
 	};
 
-	Api.image.search(opts, function (err, data) {
+
+
+	Api.image.search(opts, (err, data)=> {
 		if(err) res.send('No se pudo cargar'+ '\n' + err);
-		res.send(data);
+			res.send(data);
 	});
 
 });
 
+router.get('/image/categories/:cat');
