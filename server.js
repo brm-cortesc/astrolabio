@@ -87,4 +87,31 @@ router.get('/image/search/:keyw/:pg', (req,res,next)=>{
 
 });
 
-router.get('/image/categories/:cat');
+
+//Categorias
+router.get('/image/categories', (req,res,next)=>{
+
+	Api.image.categories((err, data)=>{
+		if(err) res.send('No se pudo cargar'+ '\n' + err);
+		
+		res.send(data);
+
+	});
+
+});
+
+
+//imagen sencilla
+
+router.get('/image/:id', (req,res,next)=>{
+
+
+	const id =  req.params.id;
+
+
+	Api.image.get(id, (err, data)=> {
+		if(err) res.send('No se pudo cargar'+ '\n' + err);
+		res.send(data);
+	});
+
+});
